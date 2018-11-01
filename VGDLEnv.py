@@ -90,7 +90,7 @@ class VGDLEnv():
 					r, c, h, w = sprite.rect.top , sprite.rect.left , sprite.rect.height , sprite.rect.width
 					im[r:r+h, c:c+w, :] = np.array(sprite.color, dtype=np.uint8)
 
-		if gif: im = resize(im, (64, 64, 3), anti_aliasing=True)
+		if gif: im = resize(im, (64, 64, 3))
 		return im
 
 
