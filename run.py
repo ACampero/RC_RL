@@ -1,9 +1,7 @@
 
 import argparse
 import sys
-sys.path.append("../GVGAI_GYM")
-import gym
-import gym_gvgai
+
 from player import Player
 import pdb
 import numpy as np
