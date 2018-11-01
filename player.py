@@ -1,5 +1,5 @@
-import gym
-import gym_gvgai
+# import gym
+# import gym_gvgai
 import torch
 import torch.nn as nn
 import torch.optim as optim
