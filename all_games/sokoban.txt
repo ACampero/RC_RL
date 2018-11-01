@@ -1,0 +1,20 @@
+BasicGame key_handler=Pulse square_size=40
+    SpriteSet
+        hole   > Immovable color=RED
+        avatar > MovingAvatar color=DARKBLUE
+        box    > Passive color=GREEN
+        wall > Immovable color=DARKGRAY autotiling=True
+    LevelMapping
+        0 > hole
+        1 > box
+        w > wall
+    InteractionSet
+        avatar wall > stepBack
+        box avatar  > bounceForward
+        box wall > stepBack
+        box box > stepBack
+        avatar hole > nothing
+        box hole    > killSprite scoreChange=1
+    TerminationSet
+        SpriteCounter stype=box    limit=0 win=True bonus=10
+        Timeout limit=2000 win=False

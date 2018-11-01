@@ -1,0 +1,33 @@
+BasicGame frame_rate=30
+    SpriteSet
+        avatar > MovingAvatar color=DARKBLUE #cooldown=4
+        goal > Passive color=GOLD
+        box > Passive color=RED
+        medicine > Resource limit=1 color=WHITE
+        poison > Resource limit=3 color=SCJPNE
+        suit > Resource limit=1 color=GREEN
+        wall > Immovable color=DARKGRAY
+    LevelMapping
+        0 > hole
+        b > box
+        m > medicine
+        p > poison
+        s > suit
+        w > wall
+        g > goal
+    InteractionSet
+        avatar wall > stepBack
+        medicine avatar > killSprite
+        avatar poison > killIfHasLess resource=medicine limit=-1
+        avatar poison > changeResource resource=medicine value=-1
+        avatar medicine > changeResource resource=medicine value=1
+        box avatar > killSprite
+        poison avatar > killSprite
+        box wall    > undoAll
+        box poison > undoAll
+        box medicine > undoAll
+        goal avatar > killSprite
+    TerminationSet
+        SpriteCounter stype=avatar  limit=0 win=False
+        SpriteCounter stype=goal limit=0 win=True bonus=10
+        Timeout limit=2000 win=False

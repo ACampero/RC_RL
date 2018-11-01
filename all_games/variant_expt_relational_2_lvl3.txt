@@ -1,0 +1,10 @@
+wwwwwwwwwwwwwwwwwwwwww
+w         w          w
+w         x          w
+w            y  w    w
+w    w               w
+w          y   z     w
+w   x    z           w
+w              w     w
+w          A         w
+wwwwwwwwwwwwwwwwwwwwww

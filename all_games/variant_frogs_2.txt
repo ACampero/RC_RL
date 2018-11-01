@@ -1,0 +1,87 @@
+BasicGame
+    SpriteSet
+        safety > Resource  limit=2 color=BROWN
+        structure > Immovable
+            water > color=MPUYEI
+            goal  > color=GREEN
+        truck  >
+            rightTruck  > Missile   orientation=RIGHT
+                fastRtruck  > speed=0.6  color=ORANGE
+                slowRtruck  > speed=0.3  color=RED
+            leftTruck  > Missile   orientation=LEFT
+                fastLtruck  > speed=0.6  color=LIGHTORANGE
+                slowLtruck  > speed=0.3  color=LIGHTRED
+        avatar > MovingAvatar color=DARKBLUE
+        wall > Immovable color=DARKGRAY
+        bridge > Immovable color=YELLOW
+        mud > Immovable color=PURPLE
+
+    InteractionSet
+        avatar bridge > nothing
+        bridge avatar > nothing
+        mud bridge > nothing
+        bridge mud > nothing
+        mud mud > nothing
+        mud avatar > bounceForward
+        avatar mud > nothing
+        mud wall > stepBack
+        wall mud > nothing
+        mud goal > nothing
+        goal mud > nothing
+        mud water > transformTo stype=bridge
+        water bridge > killSprite
+        fastRtruck mud > nothing
+        slowRtruck mud > nothing
+        mud fastRtruck > nothing
+        mud slowRtruck > nothing
+
+        fastLtruck mud > nothing
+        slowLtruck mud > nothing
+        mud fastLtruck > nothing
+        mud slowLtruck > nothing
+
+        goal avatar  > killSprite scoreChange=1
+        avatar wall  > stepBack
+        avatar EOS > wrapAround
+        avatar water > killIfHasLess  resource=safety limit=-1
+        avatar water > changeResource resource=safety value=-1
+
+        fastRtruck wall > nothing
+        slowRtruck wall > nothing
+        fastRtruck fastLtruck > nothing
+        slowRtruck slowLtruck > nothing
+        fastRtruck slowLtruck > nothing
+        fastRtruck fastRtruck > nothing
+        slowRtruck slowRtruck > nothing
+        fastRtruck slowRtruck > nothing
+        avatar fastRtruck > killSprite
+        avatar slowRtruck > killSprite
+        slowRtruck  wall   > reverseDirection
+        fastRtruck  wall  > reverseDirection
+
+        fastLtruck wall > nothing
+        slowLtruck wall > nothing
+        fastLtruck fastLtruck > nothing
+        slowLtruck slowLtruck > nothing
+        fastLtruck slowLtruck > nothing
+        avatar fastLtruck > killSprite
+        avatar slowLtruck > killSprite
+        slowLtruck  wall   > reverseDirection
+        fastLtruck  wall  > reverseDirection
+
+    TerminationSet
+        SpriteCounter stype=goal   limit=0 win=True bonus=10
+        SpriteCounter stype=avatar limit=0 win=False
+        Timeout limit=2000 win=False
+
+
+    LevelMapping
+        g > goal
+        0 > water
+        - > slowRtruck
+        x > fastRtruck
+        _ > slowLtruck
+        l > fastLtruck
+        w > wall
+        b > bridge
+        m > mud

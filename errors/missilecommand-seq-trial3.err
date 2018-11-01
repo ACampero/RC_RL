@@ -1,0 +1,5 @@
+/n/home13/kevinwu/.conda/envs/pt27/lib/python2.7/site-packages/skimage/transform/_warps.py:105: UserWarning: The default mode, 'constant', will be changed to 'reflect' in skimage 0.15.
+  warn("The default mode, 'constant', will be changed to 'reflect' in "
+/n/home13/kevinwu/.conda/envs/pt27/lib/python2.7/site-packages/skimage/transform/_warps.py:105: UserWarning: The default mode, 'constant', will be changed to 'reflect' in skimage 0.15.
+  warn("The default mode, 'constant', will be changed to 'reflect' in "
+slurmstepd: error: *** JOB 56720040 ON supermicgpu01 CANCELLED AT 2018-10-18T23:48:46 ***

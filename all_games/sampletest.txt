@@ -1,0 +1,22 @@
+BasicGame
+    SpriteSet
+        
+        random > RandomNPC speed=1 cooldown=1 color=PURPLE
+	goal > Immovable color=GREEN
+        wall > Immovable color=DARKGRAY
+
+    TerminationSet
+        SpriteCounter stype=avatar  win=False
+        SpriteCounter stype=goal   win=True
+
+    InteractionSet
+	avatar random > killSprite
+	avatar wall > stepBack
+	random wall > stepBack
+	goal avatar > killSprite
+
+    LevelMapping
+        r >  random
+        A >  avatar
+	g > goal
+        w > wall

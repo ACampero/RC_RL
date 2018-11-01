@@ -1,0 +1,50 @@
+BasicGame frame_rate=30
+    SpriteSet
+        probe > Chaser color=BLUE stype=avatar fleeing=False cooldown=5
+        converter > Immovable
+            converter1 > color=RED
+            converter2 > color=PURPLE
+            converter3 > color=PINK
+        box > Immovable
+            box1 > color=ORANGE
+        fire > Immovable color=YELLOW
+        avatar > MovingAvatar color=WHITE
+        poison > Immovable color=BLACK
+        wall > Immovable color=DARKGRAY
+    LevelMapping
+        w > wall
+        a > box1
+        b > box2
+        f > fire
+        x > probe
+        e > converter1
+        z > converter3
+        y > converter2
+        p > poison
+    InteractionSet
+        avatar wall > stepBack
+        avatar fire > stepBack
+        box avatar > bounceForward
+        box probe > stepBack
+        probe box > stepBack
+        box box > stepBack
+        box wall > stepBack
+        probe wall > stepBack
+        converter wall > stepBack
+        probe converter > stepBack
+        converter1 box > bounceForward
+        converter1 avatar > transformTo stype=fire
+        box converter2 > transformTo stype=fire
+        converter2 fire > killSprite
+        box fire > stepBack
+        probe probe > stepBack
+        probe avatar > bounceForward
+        converter3 avatar > transformTo stype=box1
+        probe fire > killSprite
+        fire probe > killSprite
+        avatar converter > nothing
+        avatar poison > killSprite
+    TerminationSet
+        SpriteCounter stype=avatar  limit=0 win=False
+        SpriteCounter stype=probe limit=0 win=True bonus=10
+        Timeout limit=2000 win=False

@@ -1,0 +1,76 @@
+BasicGame
+    SpriteSet
+        annoyed > RandomNPC speed=0.2 cons=2 color=PURPLE
+        citizen > 
+            quiet > RandomNPC speed=0.2 cons=1 color=GREEN
+            avatar > ShootAvatar stype=cigarette rotateInPlace=False color=DARKBLUE
+        george > Chaser color=YELLOW stype=quiet speed=0.1
+        cigarette > Flicker color=BROWN limit=5 singleton=True 
+        wall > Immovable color=DARKGRAY
+
+    TerminationSet
+        SpriteCounter stype=avatar  win=False
+        SpriteCounter stype=quiet   win=False
+        Timeout limit=500 win=True bonus=.02
+
+    InteractionSet
+        quiet george > transformTo stype=annoyed
+        avatar george > killSprite 
+        avatar george > changeScore value=-1
+        avatar cigarette >nothing
+        cigarette wall > nothing
+        avatar quiet > nothing
+        annoyed cigarette > transformTo stype=quiet 
+        annoyed cigarette > changeScore value=1
+
+        annoyed wall > stepBack
+        quiet wall > stepBack
+        avatar wall > stepBack
+
+        annoyed annoyed > nothing
+        annoyed quiet > nothing
+        annoyed avatar > nothing
+        annoyed george > nothing
+        annoyed EOS > nothing
+        quiet annoyed > nothing
+        quiet quiet > nothing
+        quiet avatar > nothing
+        quiet cigarette > nothing
+        quiet EOS > nothing
+        avatar annoyed > nothing
+        avatar avatar > nothing
+        avatar EOS > nothing
+        george annoyed > nothing
+        george quiet > nothing
+        george avatar > nothing
+        george george > nothing
+        george cigarette > nothing
+        george wall > nothing
+        george EOS > nothing
+        cigarette annoyed > nothing
+        cigarette quiet > nothing
+        cigarette avatar > nothing
+        cigarette george > nothing
+        cigarette cigarette > nothing
+        cigarette EOS > nothing
+        wall annoyed > nothing
+        wall quiet > nothing
+        wall avatar > nothing
+        wall george > nothing
+        wall cigarette > nothing
+        wall wall > nothing
+        wall EOS > nothing
+        EOS annoyed > nothing
+        EOS quiet > nothing
+        EOS avatar > nothing
+        EOS george > nothing
+        EOS cigarette > nothing
+        EOS wall > nothing
+        EOS EOS > nothing
+
+
+    LevelMapping
+        g >  george
+        c >  quiet
+        A >  avatar
+        w > wall

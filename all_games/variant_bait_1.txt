@@ -1,0 +1,139 @@
+BasicGame
+    SpriteSet
+        hole > Immovable color=BLUE
+        avatar > MovingAvatar color=DARKBLUE
+        mushroom > Immovable color=RED
+        key > Resource color=ORANGE limit=1
+        goal > Immovable color=GREEN
+        box > Passive color=BROWN
+        pistol > Passive 
+            leftPistol > color=PINK
+            downPistol > color=LIGHTBLUE
+        bullet > Missile
+            leftBullet > color=YELLOW orientation=LEFT
+            downBullet > color=GOLD orientation=DOWN
+        wall > Immovable color=DARKGRAY
+
+    LevelMapping
+        A > avatar 
+        0 > hole 
+        1 > box 
+        k > key 
+        g > goal 
+        m > mushroom 
+        b > bullet
+        d > downPistol
+        l > leftPistol
+    InteractionSet
+        avatar bullet > nothing
+        bullet avatar > nothing
+        bullet wall > killSprite
+        wall bullet > nothing
+        hole bullet > killSprite
+        bullet hole > nothing
+        key bullet > nothing
+        bullet key > nothing
+        goal bullet > nothing
+        bullet goal > nothing
+        box bullet > killSprite
+        bullet box > killSprite
+        mushroom bullet > killSprite
+        bullet mushroom > killSprite
+        pistol bullet > nothing
+        bullet pistol > nothing
+        avatar wall > stepBack
+        avatar hole > killSprite
+        box avatar > bounceForward
+        box wall > stepBack
+        box box > stepBack
+        box mushroom > stepBack
+
+        hole pistol > nothing
+        pistol hole > nothing
+        box pistol > stepBack
+        pistol box > stepBack
+        wall pistol > nothing
+        pistol wall > nothing
+        mushroom pistol > nothing
+        pistol mushroom > nothing
+        pistol key > nothing
+        key pistol > nothing
+        goal pistol > nothing
+        pistol goal > nothing
+
+        leftPistol avatar > transformTo stype=leftBullet
+        avatar leftPistol > nothing
+        downPistol avatar > transformTo stype=downBullet
+        avatar downPistol > nothing
+
+        hole box > killSprite
+        hole box > changeScore value=1
+        box hole > killSprite
+
+        avatar key > changeResource resource=key value=1 
+        avatar key > changeScore value=1
+        key avatar > killSprite
+        goal avatar > killIfOtherHasMore resource=key limit=1
+        avatar goal > undoAll
+        mushroom avatar > killSprite
+        mushroom avatar > changeScore value=1
+
+        mushroom hole > nothing
+        hole mushroom > nothing
+        key hole > nothing
+        hole key > nothing
+        goal hole > nothing
+        hole goal > nothing
+        wall hole > nothing
+        hole wall > nothing
+        EOS hole > nothing
+        hole EOS > nothing
+        avatar EOS > nothing
+        EOS avatar > nothing
+        key mushroom > nothing
+        mushroom key > nothing
+        goal mushroom > nothing
+        mushroom goal > nothing
+        wall mushroom > nothing
+        mushroom wall > nothing
+        EOS mushroom > nothing
+        mushroom EOS > nothing
+        key goal > nothing
+        goal key > nothing
+        key box > nothing
+        box key > nothing
+        key wall > nothing
+        wall key > nothing
+        key EOS > nothing
+        EOS key > nothing
+        box goal > nothing
+        goal box > nothing
+        wall goal > nothing
+        goal wall > nothing
+        EOS goal > nothing
+        goal EOS > nothing
+        box EOS > nothing
+        EOS box > nothing
+        wall EOS > nothing
+        EOS wall > nothing
+
+        hole hole > nothing
+        avatar avatar > nothing
+        mushroom mushroom > nothing
+        key key > nothing
+        goal goal > nothing
+        wall wall > nothing
+        EOS EOS > nothing
+
+        hole avatar > nothing
+        avatar mushroom > nothing
+        avatar box > nothing
+        mushroom box > nothing
+        wall avatar > nothing
+        wall box > nothing
+
+    TerminationSet
+        SpriteCounter stype=goal limit=0 win=True bonus=10
+        SpriteCounter stype=avatar limit=0 win=False
+        Timeout limit=2000 win=False
+

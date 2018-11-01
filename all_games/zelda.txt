@@ -1,0 +1,74 @@
+BasicGame
+  SpriteSet
+    goal  > Immovable color=GREEN
+    key   > Resource color=ORANGE limit=10
+    sword > OrientedFlicker singleton=True color=BLUE
+    avatar  > ShootAvatar   stype=sword frameRate=8 color=DARKBLUE
+    enemy >
+      monsterQuick > RandomNPC cooldown=2 cons=6 color=BROWN
+      monsterNormal > RandomNPC cooldown=4 cons=8 color=PINK
+      monsterSlow > RandomNPC cooldown=8 cons=12 color=GOLD
+    wall > Immovable autotiling=true color=DARKGRAY
+
+
+  LevelMapping
+    g > goal
+    + > key
+    1 > monsterQuick
+    2 > monsterNormal
+    3 > monsterSlow
+    w > wall
+
+
+  InteractionSet
+    avatar wall  > stepBack
+    avatar goal    > nothing
+    goal avatar  > killIfOtherHasMore resource=key limit=1
+    monsterSlow sword > changeScore value=2
+    monsterSlow sword > killSprite
+    monsterQuick sword > changeScore value=2
+    monsterQuick sword > killSprite
+    monsterNormal sword > changeScore value=2
+    monsterNormal sword > killSprite
+
+    monsterSlow monsterSlow > stepBack
+    monsterSlow monsterQuick > stepBack
+    monsterSlow monsterNormal > stepBack
+    monsterQuick monsterNormal > stepBack
+    monsterNormal monsterNormal > stepBack
+    monsterQuick monsterQuick > stepBack
+
+    avatar monsterSlow > changeScore value=-1
+    avatar monsterSlow > killSprite
+    avatar monsterQuick > changeScore value=-1
+    avatar monsterQuick > killSprite
+    avatar monsterNormal > changeScore value=-1
+    avatar monsterNormal > killSprite
+
+    avatar key > changeScore value=1
+    avatar key   > changeResource resource=key value=1
+    key avatar    > killSprite
+
+    monsterQuick wall > stepBack
+    monsterNormal wall > stepBack
+    monsterSlow wall > stepBack
+
+    monsterSlow key > nothing
+    monsterQuick key > nothing
+    monsterNormal key > nothing
+
+    monsterSlow goal > nothing
+    monsterNormal goal > nothing
+    monsterFast goal > nothing
+
+    sword goal > nothing
+    sword key > nothing
+    sword wall > nothing
+    sword avatar > nothing
+    sword sword > nothing
+
+  TerminationSet
+    SpriteCounter stype=goal   win=True bonus=10
+    SpriteCounter stype=avatar win=False
+    Timeout limit=2000 win=False
+

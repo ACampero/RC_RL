@@ -1,0 +1,111 @@
+BasicGame
+    SpriteSet
+        wall > Immovable autotiling=true color=DARKGRAY
+        dirt > Immovable color=MPUYEI
+        sword > Flicker color=PINK limit=5 singleton=True
+        exitdoor > Immovable color=GREEN
+        diamond > Resource color=SCJPNE limit=9
+        avatar  > ShootAvatar   stype=sword color=DARKBLUE
+        crab > RandomNPC cooldown=5 color=GOLD
+        butterfly > RandomNPC cooldown=5 color=RED
+        boulder > Missile orientation=DOWN color=ORANGE speed=0.2
+
+    LevelMapping
+        e > exitdoor
+        o > boulder
+        . > dirt
+        x > diamond
+        c > crab
+        b > butterfly
+        A > avatar 
+
+    InteractionSet
+        dirt avatar > killSprite
+        dirt sword  > killSprite
+
+        wall dirt > stepBack
+        dirt wall > stepBack
+        diamond avatar > changeScore value=2
+        diamond avatar > collectResource 
+
+        avatar wall > stepBack
+        crab wall > stepBack
+        butterfly wall > stepBack
+        avatar boulder > stepBack
+        crab boulder > stepBack
+        butterfly boulder > stepBack
+
+        avatar boulder > killIfFromAbove
+
+        avatar butterfly > changeScore value=-1
+        avatar butterfly > killSprite
+
+        avatar crab > changeScore value=-1
+        avatar crab > killSprite
+
+        boulder dirt > stepBack
+        boulder wall > stepBack
+        boulder diamond > stepBack
+        boulder boulder > stepBack
+
+        crab dirt > stepBack
+        butterfly dirt > stepBack
+        crab diamond > stepBack
+        butterfly diamond > stepBack
+
+        crab butterfly > killSprite
+        butterfly crab > changeScore value=1
+        butterfly crab > transformTo stype=diamond
+        exitdoor avatar > killIfOtherHasMore resource=diamond limit=9 
+        exitdoor avatar > nothing
+
+        sword crab > nothing
+        sword butterfly > nothing
+        sword boulder > nothing
+        sword avatar > nothing
+        sword exitdoor > nothing
+        sword diamond > nothing
+        sword wall > nothing
+
+            wall sword > nothing
+            wall avatar > nothing
+            wall crab > nothing
+            wall butterfly > nothing
+            wall boulder > nothing
+            wall EOS > nothing
+            sword sword > nothing
+            sword dirt > nothing
+            exitdoor sword > nothing
+            exitdoor crab > nothing
+            exitdoor butterfly > nothing
+            exitdoor boulder > nothing
+            diamond sword > nothing
+            diamond crab > nothing
+            diamond butterfly > nothing
+            diamond boulder > nothing
+            diamond dirt > nothing
+            avatar sword > nothing
+            avatar exitdoor > nothing
+            avatar diamond > nothing
+            avatar dirt > nothing
+            crab sword > nothing
+            crab exitdoor > nothing
+            crab avatar > nothing
+            crab crab > nothing
+            butterfly sword > nothing
+            butterfly exitdoor > nothing
+            butterfly avatar > nothing
+            butterfly butterfly > nothing
+            boulder sword > nothing
+            boulder exitdoor > nothing
+            boulder avatar > nothing
+            boulder crab > nothing
+            boulder butterfly > nothing
+            dirt crab > nothing
+            dirt butterfly > nothing
+            dirt boulder > nothing
+
+    TerminationSet
+        SpriteCounter stype=avatar limit=0 win=False
+        SpriteCounter stype=exitdoor limit=0 win=True bonus=10
+        Timeout limit=2000 win=False

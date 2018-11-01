@@ -1,0 +1,98 @@
+BasicGame
+    SpriteSet
+        mover >
+            fastR > Missile speed=.8 cooldown=1 orientation=RIGHT color=BLUE
+            fastL > Missile speed=.8 cooldown=1 orientation=LEFT color=LIGHTBLUE
+            mediumR > Missile speed=.4 cooldown=1 orientation=RIGHT color=ORANGE
+            mediumL > Missile speed=.4 cooldown=1 orientation=LEFT color=LIGHTORANGE
+            slowR > Missile speed=.2 cooldown=1 orientation=RIGHT color=LIGHTGREEN
+            slowL > Missile speed=.2 cooldown=1 orientation=LEFT color=GREEN
+        spawn > SpawnPoint color=DARKGRAY 
+            fastRSpawn > stype=fastR spawnCooldown=100 total=3
+            fastLSpawn > stype=fastL spawnCooldown=100 total=3
+            mediumRSpawn > stype=mediumR spawnCooldown=75 total=4
+            mediumLSpawn > stype=mediumL spawnCooldown=75 total=4
+            slowRSpawn > stype=slowR spawnCooldown=50 total=4
+            slowLSpawn > stype=slowL spawnCooldown=50 total=4
+        padding > Immovable color=YELLOW
+        goal  > Immovable color=LIGHTRED 
+        avatar > ShootAvatar color=DARKBLUE stype=bullet
+        bullet > Missile color=PURPLE
+        wall > Immovable color=DARKGRAY  
+
+    InteractionSet
+        bullet padding > nothing
+        padding bullet > nothing
+        bullet goal > nothing
+        goal bullet > nothing
+        bullet bullet > nothing
+        bullet avatar > nothing
+        avatar bullet > nothing
+        bullet EOS > killSprite
+        EOS bullet > nothing
+        bullet spawn > nothing
+        spawn bullet > nothing
+        bullet wall > killSprite
+        wall bullet > nothing
+        avatar padding > nothing
+        padding avatar > nothing
+        mover padding > killSprite
+        padding mover > nothing
+        spawn spawn > nothing
+        spawn mover > nothing
+        mover spawn >nothing
+        spawn avatar > nothing
+        avatar spawn >nothing
+        mover mover > nothing
+        goal mover > nothing
+        mover goal > nothing
+        goal avatar > killSprite
+        avatar goal > nothing
+        avatar wall > stepBack
+        wall avatar > nothing
+        goal wall > stepBack
+        wall goal > stepBack
+        mover wall > stepBack
+        wall mover > nothing
+        avatar mover > killSprite
+        mover avatar > killSprite
+
+        mediumL bullet > transformTo stype=slowL
+        bullet mediumL > killSprite
+        mediumR bullet > transformTo stype=slowR
+        bullet mediumR > killSprite
+
+        fastL bullet > transformTo stype=mediumL
+        bullet fastL > killSprite
+        fastR bullet > transformTo stype=mediumR
+        bullet fastR > killSprite
+
+        slowL bullet > transformTo stype=fastL
+        bullet slowL > killSprite
+        slowR bullet > transformTo stype=fastR
+        bullet slowR > killSprite
+
+    
+    LevelMapping
+        g > goal
+        h > fastR
+        n > mediumR
+        t > slowR
+        f > fastL
+        m > mediumL
+        s > slowL
+        6 > fastRSpawn
+        5 > fastLSpawn
+        4 > mediumRSpawn
+        3 > mediumLSpawn
+        2 > slowRSpawn
+        1 > slowLSpawn
+        A > avatar
+        B > avatar
+        p > padding
+
+    TerminationSet
+        SpriteCounter stype=avatar win=False
+        SpriteCounter stype=goal win=True bonus=10
+        Timeout limit=2000 win=False
+

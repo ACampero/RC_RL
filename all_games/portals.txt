@@ -1,0 +1,85 @@
+BasicGame
+    SpriteSet
+
+        bullet >
+            sitting  > Immovable color=LIGHTGREEN
+            random   > RandomNPC speed=0.3 cons=1 color=BROWN
+            straight > Missile   speed=0.5
+                vertical   > orientation=UP color=PINK
+                horizontal > orientation=LEFT color=LIGHTRED
+        structure > Immovable
+            goal  > color=GREEN
+            portalentry > Portal
+                entry1 > stype=exit1 color=LIGHTBLUE
+                entry2 > stype=exit2 color=BLUE
+            portalexit  >
+                exit1  > color=GOLD
+                exit2  > color=LIGHTORANGE
+        avatar > MovingAvatar color=DARKBLUE
+        wall > Immovable color=DARKGRAY autotiling=True
+    InteractionSet
+        random wall > stepBack
+        random goal > stepBack
+        random exit1 > stepBack
+        random exit2 > stepBack
+        random entry1 > stepBack
+        random entry2 > stepBack
+
+        horizontal goal > stepBack
+        horizontal exit1 > nothing
+        horizontal exit2 > nothing
+        horizontal entry1 > nothing
+        horizontal entry2 > nothing
+
+        vertical goal > stepBack
+        vertical exit1 > nothing
+        vertical exit2 > nothing
+        vertical entry1 > nothing
+        vertical entry2 > nothing
+
+        sitting wall > stepBack
+        sitting  goal > stepBack
+        sitting exit1 > stepBack
+        sitting exit2 > stepBack
+        sitting entry1 > stepBack
+        sitting entry2 > stepBack
+
+        sitting random > nothing
+        sitting horizontal > nothing
+        sitting vertical > nothing
+        random horizontal > nothing
+        random vertical > nothing
+        random random > nothing
+        horizontal vertical > nothing
+        horizontal horizontal > nothing
+        vertical vertical > nothing
+
+        avatar wall      > stepBack
+        goal   avatar    > killSprite scoreChange=1
+        avatar sitting    > killSprite
+        avatar random    > killSprite
+        avatar vertical    > killSprite
+        avatar horizontal    > killSprite
+        vertical wall    > reverseDirection
+        horizontal wall    > reverseDirection
+        avatar entry1 > teleportToExit
+        avatar exit1 > nothing
+        avatar entry2 > teleportToExit
+        avatar exit2 > nothing
+
+    TerminationSet
+        SpriteCounter stype=goal   limit=0 win=True bonus=10
+        SpriteCounter stype=avatar limit=0 win=False
+        Timeout limit=2000 win=False
+
+    LevelMapping
+        h > horizontal
+        v > vertical
+        x > sitting
+        r > random
+        g > goal
+        i > entry1
+        2 > entry2
+        o > exit1
+        3 > exit2
+        w > wall

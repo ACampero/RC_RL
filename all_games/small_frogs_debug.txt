@@ -1,0 +1,86 @@
+BasicGame
+    SpriteSet
+        safety > Resource  limit=4 color=BROWN
+
+        forestDense > SpawnPoint stype=log prob=.4  spawnCooldown=10 color=MPUYEI
+        forestSparse > SpawnPoint stype=log prob=.1  spawnCooldown=5 color=MPUYEI
+        structure > Immovable
+            water > color=MPUYEI
+            goal  > color=GREEN
+        log    > Immovable color=BROWN
+        truck  >
+            rightTruck  > Missile   orientation=RIGHT
+                fastRtruck  > speed=0.2  color=ORANGE img=newset/car3R
+                slowRtruck  > speed=0.1  color=RED img=newset/car4R
+            leftTruck  > Missile   orientation=LEFT
+                fastLtruck  > speed=0.2  color=LIGHTORANGE img=newset/car3
+                slowLtruck  > speed=0.1  color=LIGHTRED img=newset/car4
+
+        avatar > MovingAvatar color=DARKBLUE
+        wall > Immovable color=DARKGRAY
+
+    InteractionSet
+        goal avatar  > killSprite scoreChange=1
+        avatar log   > changeResource resource=safety value=1
+        avatar wall  > stepBack
+        avatar EOS > stepBack
+        log wall > nothing
+        water log > nothing
+        log log > nothing
+        avatar water > killIfHasLess  resource=safety limit=-1
+        avatar water > changeResource resource=safety value=-1
+        log    EOS   > wrapAround
+        forestDense log > nothing
+        forestSparse log > nothing
+        forestDense water > nothing
+        forestSparse water > nothing
+
+        fastRtruck wall > nothing
+        slowRtruck wall > nothing
+        fastRtruck fastLtruck > nothing
+        slowRtruck slowLtruck > nothing
+        fastRtruck slowLtruck > nothing
+        fastRtruck fastRtruck > nothing
+        slowRtruck slowRtruck > nothing
+        fastRtruck slowRtruck > nothing
+        fastRtruck wall > nothing
+        slowRtruck wall > nothing
+        avatar fastRtruck > killSprite
+        avatar slowRtruck > killSprite
+        slowRtruck  EOS   > wrapAround
+        fastRtruck  EOS   > wrapAround
+
+        fastLtruck wall > nothing
+        slowLtruck wall > nothing
+        fastLtruck fastLtruck > nothing
+        slowLtruck slowLtruck > nothing
+        fastLtruck slowLtruck > nothing
+        fastLtruck wall > nothing
+        slowLtruck wall > nothing
+        avatar fastLtruck > killSprite
+        avatar slowLtruck > killSprite
+        slowLtruck  EOS   > wrapAround
+        fastLtruck  EOS   > wrapAround
+
+    TerminationSet
+        SpriteCounter stype=goal   limit=0 win=True
+        SpriteCounter stype=avatar limit=0 win=False
+
+    LevelMapping
+        g > goal
+        0 > water
+        1 > forestDense water       # note how a single character can spawn multiple sprites
+        # 1 > water       # note how a single character can spawn multiple sprites
+        2 > forestDense log
+        # 2 > log
+        3 > forestSparse water       # note how a single character can spawn multiple sprites
+        # 3 > water       # note how a single character can spawn multiple sprites
+        4 > forestSparse log
+        # 4 > log
+        - > slowRtruck
+        x > fastRtruck
+        _ > slowLtruck
+        l > fastLtruck
+        = > log water
+        w > wall
+	B > water log avatar

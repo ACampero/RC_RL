@@ -1,0 +1,46 @@
+BasicGame frame_rate=30
+    SpriteSet
+        avatar > MovingAvatar color=DARKBLUE
+        goal > ResourcePack color=PINK
+        poison1 > ResourcePack color=ORANGE
+        poison2 > ResourcePack color=GOLD
+        poison3 > ResourcePack color=DARKGRAY
+        box1 > ResourcePack color=GREEN
+        box2 > ResourcePack color=LIGHTBLUE
+        wall > Immovable color=DARKGRAY
+    LevelMapping
+        p > poison1
+        q > poison2
+        1 > box1
+        2 > box2
+        w > wall
+        g > goal
+        z > poison3
+    InteractionSet
+        avatar wall > stepBack
+        avatar poison1 > killSprite
+        avatar poison2 > killSprite
+        avatar poison3 > killSprite
+        goal avatar > killSprite
+        box1 avatar > bounceForward
+        box2 avatar  > killSprite
+        poison1 wall > stepBack
+        poison2 wall > stepBack
+        poison3 wall > stepBack
+        goal box1 > stepBack
+        goal box2 > stepBack
+        goal wall > stepBack
+        goal poison1 > stepBack
+        goal poison2 > stepBack
+        box1 wall    > stepBack
+        box1 box2    > nothing
+        box2 wall    > stepBack
+        box1 box1 > stepBack
+        poison1 box1 > killSprite
+        poison2 box1 > bounceForward
+        poison1 box2 > stepBack
+        poison2 box2 >stepBack
+    TerminationSet
+        SpriteCounter stype=goal    limit=0 win=True bonus=10
+        SpriteCounter stype=avatar  limit=0 win=False
+        Timeout limit=2000 win=False

@@ -1,0 +1,84 @@
+BasicGame frame_rate=30
+    SpriteSet
+        avatar > MovingAvatar color=DARKBLUE cooldown=0
+        mover > VGDLSprite
+            rand > RandomNPC color=LIGHTBLUE cooldown=12 #for humans, 2 for Planner
+            chaser > Chaser
+                chaser1 > stype=box1 color=ORANGE  cooldown=6 #for humans
+        wall > Immovable color=DARKGRAY
+        forcefield > Passive color=PURPLE
+        forcefield2 > Passive color=LIGHTRED
+        box > Passive
+            box1 > color=WHITE
+            box2 > color=GREEN
+            box3 > color=YELLOW
+        bridge > Passive color=BROWN
+    LevelMapping
+        w > wall
+        a > box1
+        b > box2
+        c > box3
+        f > forcefield
+        g > forcefield2
+        x > chaser1
+        r > rand
+    InteractionSet
+        chaser bridge > nothing
+        bridge chaser > nothing
+        avatar bridge > nothing
+        bridge avatar > nothing
+        bridge box3 > nothing
+        box3 bridge > nothing
+        bridge box2 > nothing
+        box2 bridge > nothing
+        bridge box1 > nothing
+        box1 bridge > nothing
+        bridge bridge > nothing
+        bridge forcefield2 > nothing
+        forcefield2 bridge > nothing
+        box1 forcefield2 > stepBack
+        forcefield2 box1 > nothing
+        box2 forcefield2 > nothing
+        forcefield2 box2 > nothing
+        avatar forcefield2 > nothing
+        forcefield2 avatar > nothing
+        chaser forcefield2 > stepBack
+        forcefield2 chaser > nothing
+        box3 forcefield2 > transformTo stype=bridge
+        forcefield2 box3 > nothing
+        forcefield2 bridge > killSprite
+        box3 avatar > bounceForward
+        avatar box3 > nothing
+        avatar wall > stepBack
+        mover wall > stepBack
+        box wall > stepBack
+        rand wall > stepBack
+        box1 avatar > bounceForward
+        box1 box2 > stepBack
+        box1 box1 > bounceForward
+        avatar chaser > nothing
+        box2 avatar > killSprite
+        box1 chaser > killSprite
+        box1 box3 > stepBack
+        box3 box1 > stepBack    
+        box1 rand > killSprite
+        box1 forcefield > nothing
+        forcefield box1 > nothing
+        box2 forcefield > nothing
+        forcefield box2 > nothing
+        box3 forcefield > nothing
+        forcefield box3 > nothing
+        rand forcefield > stepBack
+        forcefield rand > stepBack
+        chaser forcefield > stepBack
+        avatar forcefield > nothing
+        avatar rand > nothing
+        chaser wall > stepBack
+        chaser box2 > stepBack
+        chaser chaser > nothing
+        mover mover > stepBack
+    TerminationSet
+        SpriteCounter stype=avatar  limit=0 win=False
+        SpriteCounter stype=box1 limit=0 win=True bonus=10
+        Timeout limit=2000 win=False
+

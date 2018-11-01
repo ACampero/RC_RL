@@ -1,0 +1,62 @@
+BasicGame
+    SpriteSet
+        wall > Immovable color=DARKGRAY
+        avatar > ShootAvatar color=DARKBLUE stype=bullet
+        goal > Immovable color=GREEN
+        forcefield > Immovable color=PINK
+        missile > Missile speed=1 cooldown=12
+            up > orientation=UP color=ORANGE
+            down > orientation=DOWN color=RED
+        bullet > Missile color=LIGHTGREEN
+        boulder > Immovable color=BLUE
+    InteractionSet
+        bullet boulder > killSprite
+        boulder bullet > nothing
+        bullet wall > killSprite
+        wall bullet > nothing
+        bullet goal > nothing
+        goal bullet > nothing
+        boulder boulder > stepBack
+        forcefield wall > nothing
+        wall forcefield > nothing
+        forcefield missile > nothing
+        missile forcefield > nothing
+        bullet forcefield > transformTo stype=boulder
+        forcefield bullet > nothing
+        avatar forcefield > nothing
+        forcefield avatar > nothing
+        bullet missile > stepBack
+        missile bullet stepBack
+        bullet avatar > nothing
+        avatar bullet > nothing
+        bullet bullet > nothing
+        boulder avatar > bounceForward
+        avatar boulder > nothing
+        boulder forcefield > nothing
+        forcefield boulder > nothing
+        missile boulder > stepBack
+        boulder goal > stepBack
+        goal boulder > stepBack
+        boulder missile > stepBack
+        boulder wall > stepBack
+        wall boulder > stepBack
+        avatar missile > stepBack
+        missile avatar > stepBack
+        avatar wall > stepBack
+        missile wall > stepBack
+        missile missile > stepBack
+        goal avatar > killSprite
+        avatar goal > nothing
+        forcefield forcefield > nothing
+    TerminationSet
+        SpriteCounter stype=goal   limit=0 win=True bonus=10
+        SpriteCounter stype=avatar limit=0 win=False
+        Timeout limit=2000 win=False
+
+
+    LevelMapping
+        g > goal
+        d > down
+        u > up
+        b > boulder
+        f > forcefield

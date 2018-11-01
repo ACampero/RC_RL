@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "run.py", line 56, in <module>
+    game_player = Player(config)
+  File "/n/home13/kevinwu/scripts/models/humanrl/RC_RL/player.py", line 30, in __init__
+    self.Env = VGDLEnv(self.config.game_name, 'all_games')
+  File "/n/home13/kevinwu/scripts/models/humanrl/RC_RL/VGDLEnv.py", line 29, in __init__
+    self.env_list = utils.load_game(game_name, game_folder)
+  File "/n/home13/kevinwu/scripts/models/humanrl/RC_RL/utils.py", line 57, in load_game
+    with open('all_games/{}'.format(file_list['game']), 'r') as game:
+KeyError: 'game'

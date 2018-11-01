@@ -1,0 +1,115 @@
+BasicGame
+    SpriteSet
+        marsh > Immovable color=BROWN 
+        goal  > Immovable color=GREEN
+        avatar > ShootAvatar color=DARKBLUE stype=sword 
+        random > RandomNPC color=BLUE speed=1 cooldown=4  cons=8
+        sword > Flicker color=RED limit=5 singleton=True 
+        weapon > Resource color=PINK value=10000 limit=10000 
+        gold  > Resource color=GOLD limit=11
+
+        wall > Immovable color=DARKGRAY 
+
+    InteractionSet
+        weapon avatar   > changeScore value=2
+        weapon avatar   > collectResource 
+	marsh sword     > killSprite 
+	marsh sword     > changeScore value=1
+        gold avatar     > collectResource 
+	gold avatar     > changeScore value=1
+        gold random     > collectResource
+        avatar wall     > stepBack
+        random wall     > stepBack
+	marsh avatar 	> nothing
+        avatar marsh    > killIfHasMore      resource=gold limit=11
+        random marsh    > killIfHasMore      resource=gold limit=11
+        goal avatar     > killIfOtherHasMore resource=gold limit=10
+
+        marsh goal > nothing
+        goal marsh > nothing
+        marsh weapon > nothing
+        weapon marsh > nothing
+        marsh gold > nothing
+        gold marsh > nothing
+        marsh wall > nothing
+        wall marsh > nothing
+        marsh EOS > nothing
+        EOS marsh > nothing
+        random goal > nothing
+        goal random > nothing
+        sword goal > nothing
+        goal sword > nothing
+        goal weapon > nothing
+        weapon goal > nothing
+        gold goal > nothing
+        goal gold > nothing
+        wall goal > nothing
+        goal wall > nothing
+        EOS goal > nothing
+        goal EOS > nothing
+        avatar random > nothing
+        random avatar > nothing
+        avatar sword > nothing
+        sword avatar > nothing
+        avatar EOS > nothing
+        EOS avatar > nothing
+        sword random > nothing
+        random sword > nothing
+        random weapon > nothing
+        weapon random > nothing
+        random EOS > nothing
+        EOS random > nothing
+        sword weapon > nothing
+        weapon sword > nothing
+        sword gold > nothing
+        gold sword > nothing
+        sword wall > nothing
+        wall sword > nothing
+        sword EOS > nothing
+        EOS sword > nothing
+        gold weapon > nothing
+        weapon gold > nothing
+        wall weapon > nothing
+        weapon wall > nothing
+        EOS weapon > nothing
+        weapon EOS > nothing
+        gold wall > nothing
+        wall gold > nothing
+        gold EOS > nothing
+        EOS gold > nothing
+        wall EOS > nothing
+        EOS wall > nothing
+
+        #castlef castlef > nothing
+        marsh marsh > nothing
+        goal goal > nothing
+        avatar avatar > nothing
+        random random > nothing
+        sword sword > nothing
+        weapon weapon > nothing
+        gold gold > nothing
+        wall wall > nothing
+        EOS EOS > nothing
+
+        marsh random > nothing
+        avatar goal > nothing
+        avatar weapon > nothing
+        avatar gold > nothing
+        random gold > nothing
+        sword marsh > nothing
+        wall avatar > nothing
+        wall random > nothing
+
+    TerminationSet
+        SpriteCounter stype=goal   limit=0 win=True
+        SpriteCounter stype=avatar limit=0 win=False
+
+    LevelMapping
+        #g >  castlef goal
+        g > goal
+	. >  marsh
+        0 >  gold
+        1 >  random
+        s >  weapon
+        A >  avatar
+        w >  wall

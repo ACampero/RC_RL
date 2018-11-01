@@ -1,0 +1,5 @@
+100 copies
+
+Non-Parallel Time: 38.6621739864
+Pathos Parallelization Time: 151.976958036
+Non-Pathos Parallelization Time: 126.9941082

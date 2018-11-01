@@ -1,0 +1,55 @@
+BasicGame
+    SpriteSet
+        carcass > Immovable color=BROWN
+        goat > stype=avatar cooldown=4
+            angry  > Chaser color=LIGHTBLUE
+            scared > Fleeing color=RED
+        goatgate > SpawnPoint color=PURPLE spawnCooldown=20 prob=0.1 total=10 stype=scared
+        avatar > MovingAvatar color=DARKBLUE
+        missile >
+            missile1 > Missile speed=.5 color=YELLOW orientation=RIGHT
+            missile2 > Missile speed=.5 color=ORANGE orientation=DOWN
+        wall > Immovable color=DARKGRAY
+
+    InteractionSet
+        missile1 wall > reverseDirection
+        missile2 wall > reverseDirection
+        carcass missile > transformTo stype=angry
+        missile goat > nothing
+        goat missile > nothing
+        missile avatar > transformTo stype=carcass
+        avatar missile > nothing
+        goatgate goat > nothing
+        goat goatgate > nothing
+        goatgate avatar > nothing
+        avatar goatgate > nothing
+        goatgate carcass > nothing
+        carcass goatgate > nothing
+        angry   wall   > stepBack
+        scared   wall   > stepBack
+        angry scared > nothing
+        scared scared > nothing
+        angry angry > nothing
+        carcass avatar > nothing
+        avatar wall    > stepBack
+        avatar angry > changeScore value=-1
+        avatar  angry  > killSprite
+        angry carcass > nothing
+        carcass scared > killSprite
+        scared avatar > changeScore value=1
+        scared avatar  > transformTo stype=carcass
+        scared carcass > transformTo stype=angry
+        carcass wall > nothing
+        wall carcass > nothing
+
+    LevelMapping
+        0 > scared
+        w > wall
+        g > goatgate
+        1 > missile1
+        2 > missile2
+    TerminationSet
+        MultiSpriteCounter stype1=scared stype2=missile win=True bonus=10
+        SpriteCounter stype=avatar win=False
+        Timeout limit=2000 win=False
+

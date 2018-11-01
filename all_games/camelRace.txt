@@ -1,0 +1,215 @@
+BasicGame
+    SpriteSet
+        randomCamel > RandomNPC speed=0.3 cons=8 color=GREEN frameRate=7 cooldown=6
+        fastR > Missile speed=1 cooldown=5 orientation=RIGHT color=BLUE
+        fastL > Missile speed=1 cooldown=5 orientation=LEFT color=LIGHTBLUE
+        mediumR > Missile speed=1 cooldown=4 orientation=RIGHT color=ORANGE
+        mediumL > Missile speed=1 cooldown=4 orientation=LEFT color=LIGHTORANGE
+        slowR > Missile speed=1 cooldown=4 orientation=RIGHT color=LIGHTGREEN
+        slowL > Missile speed=1 cooldown=4 orientation=LEFT color=PURPLE
+        goal  > Immovable color=LIGHTRED 
+        winnerNPC > Immovable color=RED 
+        winnerPlayer > MovingAvatar color=PINK 
+        avatar > MovingAvatar color=DARKBLUE frameRate=8
+
+        wall > Immovable color=DARKGRAY  
+
+    InteractionSet
+        avatar goal > transformTo stype=winnerPlayer 
+        avatar goal > changeScore value=1
+        randomCamel goal  > transformTo stype=winnerNPC 
+        randomCamel goal  > changeScore value=-1 
+        randomCamel wall  > stepBack
+        fastR goal  > transformTo stype=winnerNPC 
+        fastR goal  > changeScore value=-1 
+        fastR wall  > stepBack
+        fastL goal  > transformTo stype=winnerNPC 
+        fastL goal  > changeScore value=-1 
+        fastL wall  > stepBack
+        mediumR goal  > transformTo stype=winnerNPC 
+        mediumR goal  > changeScore value=-1 
+        mediumR wall  > stepBack
+        mediumL goal  > transformTo stype=winnerNPC 
+        mediumL goal  > changeScore value=-1 
+        mediumL wall  > stepBack
+        slowR goal  > transformTo stype=winnerNPC 
+        slowR goal  > changeScore value=-1 
+        slowR wall  > stepBack
+        slowL goal  > transformTo stype=winnerNPC 
+        slowL goal  > changeScore value=-1 
+        slowL wall  > stepBack
+        avatar wall > stepBack
+
+        randomCamel fastR > nothing
+        fastR randomCamel > nothing
+        randomCamel fastL > nothing
+        fastL randomCamel > nothing
+        mediumR randomCamel > nothing
+        randomCamel mediumR > nothing
+        randomCamel mediumL > nothing
+        mediumL randomCamel > nothing
+        randomCamel slowR > nothing
+        slowR randomCamel > nothing
+        slowL randomCamel > nothing
+        randomCamel slowL > nothing
+        randomCamel winnerNPC > nothing
+        winnerNPC randomCamel > nothing
+        randomCamel winnerPlayer > nothing
+        winnerPlayer randomCamel > nothing
+        avatar randomCamel > nothing
+        randomCamel avatar > nothing
+        randomCamel EOS > nothing
+        EOS randomCamel > nothing
+        fastR fastL > nothing
+        fastL fastR > nothing
+        mediumR fastR > nothing
+        fastR mediumR > nothing
+        fastR mediumL > nothing
+        mediumL fastR > nothing
+        fastR slowR > nothing
+        slowR fastR > nothing
+        slowL fastR > nothing
+        fastR slowL > nothing
+        fastR winnerNPC > nothing
+        winnerNPC fastR > nothing
+        fastR winnerPlayer > nothing
+        winnerPlayer fastR > nothing
+        avatar fastR > nothing
+        fastR avatar > nothing
+        fastR EOS > nothing
+        EOS fastR > nothing
+        mediumR fastL > nothing
+        fastL mediumR > nothing
+        mediumL fastL > nothing
+        fastL mediumL > nothing
+        slowR fastL > nothing
+        fastL slowR > nothing
+        slowL fastL > nothing
+        fastL slowL > nothing
+        winnerNPC fastL > nothing
+        fastL winnerNPC > nothing
+        winnerPlayer fastL > nothing
+        fastL winnerPlayer > nothing
+        avatar fastL > nothing
+        fastL avatar > nothing
+        EOS fastL > nothing
+        fastL EOS > nothing
+        mediumR mediumL > nothing
+        mediumL mediumR > nothing
+        mediumR slowR > nothing
+        slowR mediumR > nothing
+        mediumR slowL > nothing
+        slowL mediumR > nothing
+        mediumR winnerNPC > nothing
+        winnerNPC mediumR > nothing
+        mediumR winnerPlayer > nothing
+        winnerPlayer mediumR > nothing
+        mediumR avatar > nothing
+        avatar mediumR > nothing
+        mediumR EOS > nothing
+        EOS mediumR > nothing
+        slowR mediumL > nothing
+        mediumL slowR > nothing
+        slowL mediumL > nothing
+        mediumL slowL > nothing
+        winnerNPC mediumL > nothing
+        mediumL winnerNPC > nothing
+        winnerPlayer mediumL > nothing
+        mediumL winnerPlayer > nothing
+        avatar mediumL > nothing
+        mediumL avatar > nothing
+        EOS mediumL > nothing
+        mediumL EOS > nothing
+        slowL slowR > nothing
+        slowR slowL > nothing
+        winnerNPC slowR > nothing
+        slowR winnerNPC > nothing
+        winnerPlayer slowR > nothing
+        slowR winnerPlayer > nothing
+        avatar slowR > nothing
+        slowR avatar > nothing
+        EOS slowR > nothing
+        slowR EOS > nothing
+        slowL winnerNPC > nothing
+        winnerNPC slowL > nothing
+        slowL winnerPlayer > nothing
+        winnerPlayer slowL > nothing
+        slowL avatar > nothing
+        avatar slowL > nothing
+        slowL EOS > nothing
+        EOS slowL > nothing
+        winnerNPC goal > nothing
+        goal winnerNPC > nothing
+        winnerPlayer goal > nothing
+        goal winnerPlayer > nothing
+        wall goal > nothing
+        goal wall > nothing
+        EOS goal > nothing
+        goal EOS > nothing
+        winnerPlayer winnerNPC > nothing
+        winnerNPC winnerPlayer > nothing
+        avatar winnerNPC > nothing
+        winnerNPC avatar > nothing
+        wall winnerNPC > nothing
+        winnerNPC wall > nothing
+        EOS winnerNPC > nothing
+        winnerNPC EOS > nothing
+        avatar winnerPlayer > nothing
+        winnerPlayer avatar > nothing
+        winnerPlayer wall > nothing
+        wall winnerPlayer > nothing
+        winnerPlayer EOS > nothing
+        EOS winnerPlayer > nothing
+        avatar EOS > nothing
+        EOS avatar > nothing
+        wall EOS > nothing
+        EOS wall > nothing
+
+        randomCamel randomCamel > nothing
+        fastR fastR > nothing
+        fastL fastL > nothing
+        mediumR mediumR > nothing
+        mediumL mediumL > nothing
+        slowR slowR > nothing
+        slowL slowL > nothing
+        goal goal > nothing
+        winnerNPC winnerNPC > nothing
+        winnerPlayer winnerPlayer > nothing
+        avatar avatar > nothing
+        wall wall > nothing
+        EOS EOS > nothing
+
+        goal randomCamel > nothing
+        goal fastR > nothing
+        goal fastL > nothing
+        goal mediumR > nothing
+        goal mediumL > nothing
+        goal slowR > nothing
+        goal slowL > nothing
+        goal avatar > nothing
+        wall randomCamel > nothing
+        wall fastR > nothing
+        wall fastL > nothing
+        wall mediumR > nothing
+        wall mediumL > nothing
+        wall slowR > nothing
+        wall slowL > nothing
+        wall avatar > nothing
+
+    LevelMapping
+        g > goal
+        r > randomCamel
+        h > fastR
+        n > mediumR
+        t > slowR
+        f > fastL
+        m > mediumL
+        s > slowL
+        A > avatar
+        B > avatar
+
+    TerminationSet
+        MultiSpriteCounter stype1=winnerPlayer limit=1 win=True
+        MultiSpriteCounter stype1=winnerNPC limit=1 win=False
+        Timeout limit=2000 win=False
+

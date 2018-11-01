@@ -1,0 +1,67 @@
+BasicGame
+    SpriteSet
+        carcass > Immovable color=BROWN
+        goat > stype=avatar cooldown=4
+            angry  > Chaser color=GOLD
+            scared > Fleeing color=RED
+        wolf > Chaser color=BLUE stype=avatar cooldown=6
+        wolfgate > Immovable color=PURPLE
+        avatar > ShootAvatar stype=missile color=DARKBLUE
+        missile > Missile color=LIGHTGREEN
+        wall > Immovable color=DARKGRAY
+
+    InteractionSet
+        missile wall > killSprite
+        wall missile > nothing
+        goat missile > killSprite
+        missile goat > killSprite
+        missile carcass > killSprite
+        carcass missile > killSprite
+
+        wolfgate missile > transformTo stype=wolf
+        missile wolf > killSprite
+
+        wolf wolfgate > nothing
+        wolfgate wolf > nothing
+        avatar wolf > killSprite
+        wolf avatar > killSprite
+        wolf wall > stepBack
+        wall wolf > nothing
+        wolf wolf > nothing
+        wolf goat > nothing
+        goat wolf > nothing
+        wolf carcass > nothing
+        carcass wolf > nothing
+
+        wolfgate goat > nothing
+        goat wolfgate > nothing
+        wolfgate avatar > nothing
+        avatar wolfgate > nothing
+        wolfgate carcass > nothing
+        carcass wolfgate > nothing
+
+        angry   wall   > stepBack
+        scared   wall   > stepBack
+        angry scared > nothing
+        scared scared > nothing
+        angry angry > nothing
+        carcass avatar > nothing
+        avatar wall    > stepBack
+        avatar angry > changeScore value=-1
+        avatar  angry  > killSprite
+        angry carcass > nothing
+        carcass scared > killSprite
+        scared avatar > changeScore value=1
+        scared avatar  > transformTo stype=carcass
+        scared carcass > transformTo stype=angry
+
+    LevelMapping
+        0 > scared
+        w > wall
+        g > wolfgate
+
+    TerminationSet
+        SpriteCounter stype=scared win=True bonus=10
+        SpriteCounter stype=avatar win=False
+        Timeout limit=2000 win=False
+

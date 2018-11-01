@@ -1,0 +1,35 @@
+BasicGame
+    SpriteSet
+        hole   > Immovable color=RED
+        avatar > MovingAvatar color=DARKBLUE
+        wall > Immovable color=DARKGRAY
+        entry1 > Portal stype=exit1 color=YELLOW
+        exit1 > Immovable color=PINK
+        fence > Immovable color=PURPLE
+        box    > Passive color=GREEN
+    LevelMapping
+        0 > hole
+        1 > box
+        w > wall
+        2 > entry1
+        3 > exit1
+        4 > fence
+    InteractionSet
+        avatar fence > nothing
+        fence avatar > nothing
+        avatar entry1 > teleportToExit
+        avatar exit1 > nothing
+        box entry1 > teleportToExit
+        box exit1 > nothing
+        box fence > stepBack
+        fence box > nothing
+        avatar wall > stepBack
+        box avatar  > bounceForward
+        box wall > stepBack
+        box box > stepBack
+        avatar hole > nothing
+        box hole    > killSprite scoreChange=1
+    TerminationSet
+        SpriteCounter stype=box    limit=0 win=True bonus=10
+        Timeout limit=2000 win=False
+

@@ -1,0 +1,90 @@
+BasicGame
+    SpriteSet
+        base    > Immovable    color=WHITE 
+        avatar  > HorizontalAvatar color=DARKBLUE
+        alien   > Missile  orientation=DOWN  speed=0.8 color=ORANGE
+        ghost > Missile orientation=DOWN speed=0.8 color=PURPLE
+        portalAlien  > SpawnPoint orientation=RIGHT   stype=alien  color=CCKQQB spawnCooldown=16  prob=0.08 total=20 
+        portalGhost  > SpawnPoint orientation=RIGHT   stype=ghost  color=BVUTFD spawnCooldown=12  prob=0.08 total=20 
+        wall > Immovable color=DARKGRAY
+    LevelMapping
+        0 > base
+        1 > portalAlien
+        2 > portalGhost
+        w > wall
+
+    TerminationSet
+        SpriteCounter      stype=avatar               limit=0 win=False
+        Timeout limit=500 win=True bonus=.02
+
+    InteractionSet
+        avatar  wall  > stepBack
+        alien   EOS  > turnAround
+        base   alien > killSprite
+        alien avatar > killSprite 
+        alien avatar > changeScore value=1
+        avatar ghost > killSprite 
+        avatar ghost > changeScore value=-10
+
+        base avatar > nothing
+        avatar base > nothing
+        base ghost > nothing
+        ghost base > nothing
+        base portalAlien > nothing
+        portalAlien base > nothing
+        base portalGhost > nothing
+        portalGhost base > nothing
+        base wall > nothing
+        wall base > nothing
+        base EOS > nothing
+        EOS base > nothing
+        avatar portalAlien > nothing
+        portalAlien avatar > nothing
+        avatar portalGhost > nothing
+        portalGhost avatar > nothing
+        avatar EOS > nothing
+        EOS avatar > nothing
+        alien ghost > nothing
+        ghost alien > nothing
+        alien portalAlien > nothing
+        portalAlien alien > nothing
+        alien portalGhost > nothing
+        portalGhost alien > nothing
+        wall alien > nothing
+        alien wall > killSprite
+        ghost portalAlien > nothing
+        portalAlien ghost > nothing
+        ghost portalGhost > nothing
+        portalGhost ghost > nothing
+        wall ghost > nothing
+        ghost wall > killSprite
+        ghost EOS > nothing
+        EOS ghost > nothing
+        portalGhost portalAlien > nothing
+        portalAlien portalGhost > nothing
+        wall portalAlien > nothing
+        portalAlien wall > nothing
+        EOS portalAlien > nothing
+        portalAlien EOS > nothing
+        wall portalGhost > nothing
+        portalGhost wall > nothing
+        EOS portalGhost > nothing
+        portalGhost EOS > nothing
+        wall EOS > nothing
+        EOS wall > nothing
+
+        base base > nothing
+        avatar avatar > nothing
+        alien alien > nothing
+        ghost ghost > nothing
+        portalAlien portalAlien > nothing
+        portalGhost portalGhost > nothing
+        wall wall > nothing
+        EOS EOS > nothing
+
+        avatar alien > nothing
+        alien base > nothing
+        ghost avatar > nothing
+        wall avatar > nothing
+        avatar wall > nothing
+        EOS alien > nothing

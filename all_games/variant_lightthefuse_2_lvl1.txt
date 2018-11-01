@@ -1,0 +1,11 @@
+wwwwwwwwwwwwwwwwwwwwwwwww
+w        b l r b        w
+w        b     b        w
+w        b u u b        w
+w   u    b l r b   u    w
+w        b  A  b        w
+w   d    b l r b   d    w
+w        b d d b        w
+w        b     b        w
+w        b l r b       gw
+wwwwwwwwwwwwwwwwwwwwwwwww

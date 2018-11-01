@@ -1,0 +1,435 @@
+Namespace(batch_size=32, criteria='1/5', cuda=1, doubleq=1, eps_decay=200.0, eps_end=0.1, eps_start=1, game_name='avoidgeorge', gamma=0.999, img_size=64, level_switch='sequential', lr=0.00025, max_mem=50000, max_steps=5000000.0, model_name='DQN', model_weight_path=None, num_episodes=20000, pretrain=0, target_update=100, test_mode=0, timeout=2000, trial_num='1')
+Game: avoidgeorge
+Training Starting
+-------------------------
+FINISHED LEVEL
+Episode Reward at step 498: 13.94
+Next Level!
+[0, 0, 0, 0, 0]
+Print Current Level: 1
+FINISHED LEVEL
+Episode Reward at step 914: 7.3
+[False, 0, 0, 0, 0]
+Print Current Level: 1
+FINISHED LEVEL
+Episode Reward at step 1084: 2.38
+[False, False, 0, 0, 0]
+Print Current Level: 1
+FINISHED LEVEL
+Episode Reward at step 1204: 1.38
+[False, False, False, 0, 0]
+Print Current Level: 1
+FINISHED LEVEL
+Episode Reward at step 1340: 1.7
+[False, False, False, False, 0]
+Print Current Level: 1
+FINISHED LEVEL
+Episode Reward at step 1701: 6.2
+[False, False, False, False, False]
+Print Current Level: 1
+FINISHED LEVEL
+Episode Reward at step 1919: 3.34
+[False, False, False, False, False]
+Print Current Level: 1
+FINISHED LEVEL
+Episode Reward at step 2348: 7.56
+[False, False, False, False, False]
+Print Current Level: 1
+FINISHED LEVEL
+Episode Reward at step 2729: 6.6
+[False, False, False, False, False]
+Print Current Level: 1
+FINISHED LEVEL
+Episode Reward at step 3049: 6.38
+[False, False, False, False, False]
+Print Current Level: 1
+FINISHED LEVEL
+Episode Reward at step 3416: 6.32
+[False, False, False, False, False]
+Print Current Level: 1
+FINISHED LEVEL
+Episode Reward at step 3471: 0.08
+[False, False, False, False, False]
+Print Current Level: 1
+FINISHED LEVEL
+Episode Reward at step 3969: 12.94
+Next Level!
+[0, 0, 0, 0, 0]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 4301: 5.62
+[False, 0, 0, 0, 0]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 4688: 6.72
+[False, False, 0, 0, 0]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 5145: 8.12
+[False, False, False, 0, 0]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 5529: 6.66
+[False, False, False, False, 0]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 5897: 6.34
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 6252: 6.08
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 6615: 6.24
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 7028: 7.24
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 7366: 5.74
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 7679: 5.24
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 8025: 5.9
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 8481: 8.1
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 8839: 6.14
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 9285: 7.9
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 9605: 5.38
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 9996: 6.8
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 10362: 6.3
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 10682: 5.38
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 11038: 6.1
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 11405: 6.32
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 11746: 5.8
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 12160: 7.26
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 12560: 6.98
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 12892: 5.62
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 13231: 5.76
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 13611: 6.58
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 13968: 6.12
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 14343: 6.48
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 14753: 7.18
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 15125: 6.42
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 15573: 7.94
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 15949: 6.5
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 16324: 6.48
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 16661: 5.72
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 17064: 7.04
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 17473: 7.16
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 17969: 8.9
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 18331: 6.22
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 18678: 5.92
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 19081: 7.04
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 19492: 7.2
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 19885: 6.84
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 20243: 6.14
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 20732: 8.76
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 21067: 5.68
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 21443: 6.5
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 21893: 7.98
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 22242: 5.96
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 22691: 7.96
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 23096: 7.08
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 23506: 7.18
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 23919: 7.24
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 24292: 6.44
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 24759: 8.32
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 25062: 5.04
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 25402: 5.78
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 25758: 6.1
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 26145: 6.72
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 26501: 6.1
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 26864: 6.24
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 27259: 6.88
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 27686: 7.52
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 28013: 5.52
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 28338: 5.48
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 28758: 7.38
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 29167: 7.16
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 29488: 5.4
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 29854: 6.3
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 30245: 6.8
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 30626: 6.6
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 30974: 5.94
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 31462: 8.74
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 31864: 7.02
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 32235: 6.4
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 32627: 6.82
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 33081: 8.06
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 33453: 6.42
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 33854: 7.0
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 34208: 6.06
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 34597: 6.76
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 35026: 7.56
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 35426: 6.98
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 35823: 6.92
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 36192: 6.36
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 36568: 6.5
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 36929: 6.2
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 37282: 6.04
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 37680: 6.94
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 38097: 7.32
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 38493: 6.9
+[False, False, False, False, False]
+Print Current Level: 2
+FINISHED LEVEL
+Episode Reward at step 38991: 10.94
+Next Level!
+[0, 0, 0, 0, 0]
+Print Current Level: 3
+FINISHED LEVEL
+Episode Reward at step 39489: 10.94
+Next Level!
+[0, 0, 0, 0, 0]
+Print Current Level: 4
+FINISHED LEVEL
+Episode Reward at step 39873: 6.66
+[False, 0, 0, 0, 0]
+Print Current Level: 4
+FINISHED LEVEL
+Episode Reward at step 40371: 12.94
+Learning Finished

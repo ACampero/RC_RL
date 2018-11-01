@@ -1,0 +1,27 @@
+BasicGame frame_rate=30
+    SpriteSet
+        apple > Immovable color=GREEN
+        orange > Immovable color=ORANGE
+        blueberry > Immovable color=BLUE
+        dough > Immovable color=YELLOW
+        cranberry > Immovable color=LIGHTBLUE
+        eel > Immovable color=PINK
+        fruit > Immovable color=RED
+        avatar > MovingAvatar color=DARKBLUE
+        wall > Immovable color=DARKGRAY
+    LevelMapping
+        w > wall
+        a > apple
+        b > blueberry
+        o > orange
+    InteractionSet
+        avatar wall > stepBack
+        box avatar > bounceForward
+        blueberry avatar > killSprite
+        apple avatar > killSprite
+        orange avatar > killSprite
+    TerminationSet
+        SpriteCounter stype=avatar  limit=0 win=False
+        SpriteCounter stype=apple limit=0 win=True bonus=10
+        SpriteCounter stype=orange limit=0 win=True bonus=10
+        Timeout limit=2000 win=False

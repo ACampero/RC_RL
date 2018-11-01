@@ -1,0 +1,61 @@
+BasicGame frame_rate=30
+    SpriteSet
+        avatar > MovingAvatar color=DARKBLUE
+        chaser > VGDLSprite
+        mediumChaser > Chaser color=LIGHTGREEN cooldown=5 stype=box2
+        redChaser > Chaser color=RED cooldown=5 stype=box3
+        forcefield > Passive color=LIGHTBLUE
+        forcefield2 > Passive color=SCJPNE
+        wall > Immovable color=DARKGRAY
+        box > Passive
+            box1 > color=MPUYEI
+            box2 > color=YELLOW
+            box3 > color=BLUE
+    LevelMapping
+        w > wall
+        a > box1
+        b > box2
+        c > box3
+        m > mediumChaser
+        r > redChaser
+        f > forcefield
+        e > forcefield2
+    InteractionSet
+        box3 box1 > nothing
+        box1 box3 > nothing
+        box3 box2 > nothing
+        box2 box3 > nothing
+        avatar wall > stepBack
+        mover wall > stepBack
+        avatar chaser > stepBack
+        chaser avatar > nothing
+        box wall > stepBack
+        box2 avatar > transformTo stype=box3
+        avatar box2 > nothing
+        box2 forcefield > nothing
+        box3 avatar > nothing
+        avatar box3 > nothing
+        box3 mediumChaser > nothing
+        mediumChaser box3 > nothing
+        chaser chaser > nothing
+        box3 redChaser > transformTo stype=box2
+        redChaser box3 > nothing
+        avatar forcefield > nothing
+        box1 box2 > killSprite
+        box1 avatar > killSprite
+        box2 mediumChaser > killSprite
+        box2 redChaser > nothing
+
+        avatar chaser > nothing
+        chaser box1 > stepBack
+        chaser wall > stepBack
+        box2 forcefield2 > nothing
+        avatar forcefield2 > nothing
+        chaser forcefield2 > nothing
+        chaser forcefield > stepBack
+        forcefield chaser > nothing
+    TerminationSet
+        SpriteCounter stype=avatar  limit=0 win=False
+        MultiSpriteCounter stype1=box2 stype2=box3  limit=0 win=False
+        SpriteCounter stype=box1 limit=0 win=True bonus=10
+        Timeout limit=2000 win=False

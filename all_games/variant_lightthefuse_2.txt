@@ -1,0 +1,83 @@
+BasicGame
+    SpriteSet
+        wallsuper > Immovable 
+            wall > color=DARKGRAY
+            deadbrick > color=FUSCHA
+        avatar > MovingAvatar color=DARKBLUE
+        goal > Immovable color=PURPLE
+        fuse > Immovable
+            leftFuse > color=GREEN
+            rightFuse > color=LIGHTGREEN
+            downFuse > color=RED
+            upFuse > color=PINK
+        litfuse > Missile
+            leftLit > color=BLUE orientation=LEFT
+            rightLit > color=LIGHTBLUE orientation=RIGHT
+            downLit > color=GOLD orientation=DOWN
+            upLit > color=YELLOW orientation=UP
+        fence > Immovable color=MPUYEI
+        brick > Immovable color=LIGHTFUSCHA
+    
+    InteractionSet
+        avatar fence > stepBack
+        fence avatar > nothing
+        litfuse fence > nothing
+        fence litfuse > nothing
+        fence wallsuper > nothing
+        wallsuper fence > nothing
+        fence fuse > nothing
+        fuse fence > nothing
+        goal avatar > nothing
+        avatar goal > nothing
+        avatar wallsuper > stepBack
+        wallsuper avatar > nothing
+
+        goal litfuse > killSprite
+        litfuse goal > killSprite
+        litfuse litfuse > nothing
+
+        litfuse avatar > nothing
+        avatar litfuse > nothing
+        litfuse wallsuper > killSprite
+        wallsuper litfuse > nothing
+
+        brick leftLit > transformTo stype=deadbrick
+        brick rightLit > transformTo stype=deadbrick
+        brick upLit > transformTo stype=deadbrick
+        brick downLit > transformTo stype=deadbrick
+
+        litfuse brick > nothing
+        avatar brick > stepBack
+        brick avatar stepBack
+
+        avatar fuse > nothing
+        leftFuse avatar > transformTo stype=leftLit
+        rightFuse avatar > transformTo stype=rightLit
+        downFuse avatar > transformTo stype=downLit
+        upFuse avatar > transformTo stype=upLit
+
+        litfuse fuse > nothing
+        leftFuse litfuse > transformTo stype=leftLit
+        rightFuse litfuse > transformTo stype=rightLit
+        downFuse litfuse > transformTo stype=downLit
+        upFuse litfuse > transformTo stype=upLit
+
+        fuse wallsuper > nothing
+        wallsuper fuse > nothing
+        fuse fuse > nothing
+        fuse goal > nothing
+        goal fuse > nothing
+
+    TerminationSet
+        SpriteCounter stype=goal   limit=0 win=True
+        SpriteCounter stype=avatar limit=0 win=False
+
+    LevelMapping
+        g > goal
+        u > upFuse
+        d > downFuse
+        l > leftFuse
+        r > rightFuse
+        b > brick
+        f > fence
+        k > deadbrick

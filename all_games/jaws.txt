@@ -1,0 +1,143 @@
+BasicGame
+    SpriteSet 
+        sharkhole  > SpawnPoint color=LKLWDD stype=shark  prob=0.025 total=1  
+        whalehole  > SpawnPoint color=DLLJEV stype=whale  prob=0.1 spawnCooldown=10 
+        piranhahole  >  SpawnPoint color=GREEN stype=piranha  prob=0.1 spawnCooldown=10  
+
+
+        avatar  > ShootAvatar color=DARKBLUE  stype=torpedo 
+        torpedo > Missile color=WHITE
+        shark  > Chaser speed=0.1 cooldown=2 color=ORANGE  stype=avatar
+        whale  > Missile  orientation=RIGHT  speed=0.1 color=BROWN 
+        piranha > Missile orientation=LEFT speed=0.1 color=RED 
+
+        shell > Resource color=YELLOW limit=20 
+        sharkFang > Resource color=GOLD limit=1 
+
+
+    LevelMapping
+        1 >  piranhahole
+        2 >  whalehole
+        3 >  sharkhole
+        A >  avatar
+        t > torpedo
+    TerminationSet
+        SpriteCounter stype=avatar limit=0 win=False
+        Timeout limit=500 win=True bonus=.02
+
+    InteractionSet
+        EOS avatar > stepBack
+        avatar EOS > stepBack
+        EOS shark > stepBack
+        EOS torpedo  > killSprite
+
+        EOS shark > killSprite
+        EOS whale > killSprite
+        EOS piranha > killSprite
+
+        whale torpedo > transformTo stype=shell 
+        whale torpedo > changeScore value=1
+        piranha torpedo > transformTo stype=shell 
+        piranha torpedo > changeScore value=1
+
+        torpedo shark > killSprite
+        torpedo whale > killSprite
+        torpedo piranha > killSprite
+
+        sharkFang avatar > collectResource 
+        sharkFang avatar > changeScore value=1000
+        shell avatar > collectResource 
+        shell avatar > changeScore value=1
+
+        avatar shark > spawnIfHasMore resource=shell limit=15 stype=sharkFang
+        shark avatar > killIfOtherHasMore resource=shell limit=15
+
+        avatar shark  > killIfHasLess resource=shell limit=15
+        avatar whale  > killSprite
+        avatar piranha > killSprite
+
+        avatar sharkhole > nothing
+        sharkhole avatar > nothing
+        torpedo sharkhole > nothing
+        sharkhole torpedo > nothing
+        shark sharkhole > nothing
+        sharkhole shark > nothing
+        whale sharkhole > nothing
+        sharkhole whale > nothing
+        piranha sharkhole > nothing
+        sharkhole piranha > nothing
+        shell sharkhole > nothing
+        sharkhole shell > nothing
+        sharkFang sharkhole > nothing
+        sharkhole sharkFang > nothing
+        EOS sharkhole > nothing
+        sharkhole EOS > nothing
+        whalehole piranhahole > nothing
+        piranhahole whalehole > nothing
+        avatar whalehole > nothing
+        whalehole avatar > nothing
+        whalehole torpedo > nothing
+        torpedo whalehole > nothing
+        whalehole shark > nothing
+        shark whalehole > nothing
+        whale whalehole > nothing
+        whalehole whale > nothing
+        whalehole piranha > nothing
+        piranha whalehole > nothing
+        whalehole shell > nothing
+        shell whalehole > nothing
+        avatar piranhahole > nothing
+        piranhahole avatar > nothing
+        piranhahole torpedo > nothing
+        torpedo piranhahole > nothing
+        shark piranhahole > nothing
+        piranhahole shark > nothing
+        whale piranhahole > nothing
+        piranhahole whale > nothing
+        piranha piranhahole > nothing
+        piranhahole piranha > nothing
+        avatar torpedo > nothing
+        torpedo avatar > nothing
+        shell torpedo > nothing
+        torpedo shell > nothing
+        sharkFang torpedo > nothing
+        torpedo sharkFang > nothing
+        whale shark > nothing
+        shark whale > nothing
+        piranha shark > nothing
+        shark piranha > nothing
+        shark shell > nothing
+        shell shark > nothing
+        shark sharkFang > nothing
+        sharkFang shark > nothing
+        whale piranha > nothing
+        piranha whale > nothing
+        whale shell > nothing
+        shell whale > nothing
+        whale sharkFang > nothing
+        sharkFang whale > nothing
+        piranha shell > nothing
+        shell piranha > nothing
+        shell piranhahole > nothing
+        piranhahole shell > nothing
+        piranha sharkFang > nothing
+        sharkFang piranha > nothing
+        sharkFang shell > nothing
+        shell sharkFang > nothing
+
+        torpedo torpedo > nothing
+        shark shark > nothing
+        whale whale > nothing
+        piranha piranha > nothing
+        shell shell > nothing
+        sharkFang sharkFang > nothing
+
+        avatar shell > nothing
+        avatar sharkFang > nothing
+        torpedo EOS > killSprite
+        shark torpedo > nothing
+        shark EOS > killSprite
+        whale avatar > nothing
+        whale EOS > killSprite
+        piranha avatar > nothing
+        piranha EOS > killSprite

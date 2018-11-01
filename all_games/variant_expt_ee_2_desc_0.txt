@@ -1,0 +1,44 @@
+BasicGame frame_rate=30
+    SpriteSet
+        food > Chaser stype=avatar fleeing=True cooldown=5
+            apple > color=GREEN
+            orange > color=ORANGE
+            blueberry > color=BLUE
+            dough > color=YELLOW
+            cranberry > color=LIGHTBLUE
+            eel > color=PINK
+            fruit > color=RED
+        avatar > MovingAvatar color=DARKBLUE
+        missile > Missile color=RED speed=.5 orientation=RIGHT
+        chaser > Chaser stype=avatar cooldown=10 color=BROWN
+        wall > Immovable color=DARKGRAY
+    LevelMapping
+        w > wall
+        a > apple
+        b > blueberry
+        o > orange
+        m > missile
+        x > chaser
+    InteractionSet
+        food wall > stepBack
+        wall food > nothing
+        avatar chaser > killSprite
+        chaser avatar > nothing
+        chaser apple > nothing
+        apple chaser > nothing
+        chaser wall > stepBack
+        wall chaser > nothing
+        chaser blueberry > nothing
+        blueberry chaser > nothing
+        chaser orange > nothing
+        orange chaser > nothing
+        avatar wall > stepBack
+        apple avatar > killSprite
+        blueberry avatar > killSprite
+        orange avatar > killSprite
+        missile orange > nothing
+        missile wall > reverseDirection
+    TerminationSet
+        SpriteCounter stype=avatar  limit=0 win=False
+        SpriteCounter stype=apple limit=0 win=True bonus=10
+        Timeout limit=2000 win=False

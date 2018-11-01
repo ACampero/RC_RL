@@ -1,0 +1,21 @@
+BasicGame
+  SpriteSet
+    avatar  > MovingAvatar color=DARKBLUE
+    missile > Missile color=PURPLE orientation=RIGHT speed=1
+    wall > Immovable autotiling=true color=DARKGRAY
+    cannon > SpawnPoint color=BLUE stype=missile cooldown=1 prob=1
+
+  LevelMapping
+    A > avatar
+    m > missile
+    w > wall
+    c > cannon
+
+
+  InteractionSet
+    avatar wall  > stepBack
+    avatar goal  > nothing
+    missile wall > killSprite
+
+  TerminationSet
+    SpriteCounter stype=avatar win=False

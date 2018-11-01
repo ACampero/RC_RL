@@ -1,0 +1,67 @@
+BasicGame
+    SpriteSet
+        wall > Immovable color=DARKGRAY
+        avatar > MovingAvatar color=DARKBLUE
+        goal > Immovable color=YELLOW
+	gas > Immovable
+		gas1 > color=SCJPNE
+		gas2 > color=MPUYEI
+		gas3 > color=LIGHTBLUE
+	mask1 > Resource color=BLUE limit=1
+	mask2 > Resource color=LIGHTGREEN limit=1
+	mask3 > Resource color=PURPLE limit=1
+	
+    InteractionSet
+	enemy wall > stepBack
+	wall enemy > nothing
+	avatar wall > stepBack
+	wall avatar > stepBack
+        goal avatar > killSprite
+	avatar goal > nothing
+	mask1 avatar > killSprite
+	mask2 avatar > killSprite
+	mask3 avatar > killSprite
+	avatar mask1 > changeResource resource=mask1 value=1
+	#avatar mask1 > changeResource resource=mask2 value=-1
+	#avatar mask1 > changeResource resource=mask3 value=-1
+
+	avatar mask2 > changeResource resource=mask2 value=1
+	#avatar mask2 > changeResource resource=mask1 value=-1
+	#avatar mask2 > changeResource resource=mask3 value=-1
+
+	avatar mask3 > changeResource resource=mask3 value=1
+	#avatar mask3 > changeResource resource=mask1 value=-1
+	#avatar mask3 > changeResource resource=mask2 value=-1
+
+	avatar gas1 > changeResource resource=mask1 value=-1
+	#avatar gas1 > changeResource resource=mask2 value=-1
+	#avatar gas1 > changeResource resource=mask3 value=-1
+
+
+	avatar gas2 > changeResource resource=mask2 value=-1
+	#avatar gas2 > changeResource resource=mask1 value=-1
+	#avatar gas2 > changeResource resource=mask3 value=-1
+
+
+	avatar gas3 > changeResource resource=mask3 value=-1
+	#avatar gas3 > changeResource resource=mask1 value=-1
+	#avatar gas3 > changeResource resource=mask2 value=-1
+
+
+
+	avatar gas1 > killIfHasLess resource=mask1 limit=-1
+	avatar gas2 > killIfHasLess resource=mask2 limit=-1
+	avatar gas3 > killIfHasLess resource=mask3 limit=-1
+	gas avatar > killSprite
+    TerminationSet
+        SpriteCounter stype=goal   limit=0 win=True
+        SpriteCounter stype=avatar limit=0 win=False
+
+    LevelMapping
+        g > goal
+	1 > gas1
+	2 > gas2
+	3 > gas3
+	4 > mask1
+	5 > mask2
+	6 > mask3

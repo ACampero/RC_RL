@@ -1,0 +1,89 @@
+BasicGame
+    SpriteSet
+        door > Passive color=BROWN
+        wall > Immovable color=DARKGRAY
+        water > Immovable color=LIGHTBLUE
+        box > Passive color=PURPLE
+        part1 > Passive color=LIGHTGREEN
+        part2 > Passive color=YELLOW
+        avatar > MovingAvatar color=DARKBLUE
+
+    TerminationSet
+        SpriteCounter stype=door limit=0 win=True bonus=10
+        SpriteCounter stype=avatar limit=0 win=False
+        Timeout limit=2000 win=False
+
+    InteractionSet
+        part1 wall > stepBack
+        wall part1 > nothing
+        box part1 > nothing
+        part1 box > killSprite
+        part1 water > killSprite
+        water part1 > nothing
+        part1 avatar > bounceForward
+        avatar part1 > nothing
+        part1 door > stepBack
+        door part1 > stepBack
+
+        part2 wall > stepBack
+        wall part2 > nothing
+        box part2 > killSprite
+        part2 box > killSprite
+        part2 water > killSprite
+        water part2 > nothing
+        part2 avatar > bounceForward
+        avatar part2 > nothing
+        part2 door > stepBack
+        door part2 > stepBack
+        part2 part1 > transformTo stype=box
+        part1 part2 > nothing
+
+        avatar wall > stepBack
+        box avatar > bounceForward
+        box wall > undoAll
+        box box > undoAll
+        wall box > undoAll
+        water box > killSprite
+        box water > killSprite
+        avatar water > killSprite
+        door avatar > killSprite
+        avatar door > nothing
+
+        door wall > nothing
+        wall door > nothing
+        door water > nothing
+        water door > nothing
+        door box > nothing
+        box door > nothing
+        door EOS > nothing
+        EOS door > nothing
+        water wall > nothing
+        wall water > nothing
+        wall EOS > nothing
+        EOS wall > nothing
+        water EOS > nothing
+        EOS water > nothing
+        box EOS > nothing
+        EOS box > nothing
+        avatar EOS > nothing
+        EOS avatar > nothing
+
+        door door > nothing
+        wall wall > nothing
+        water water > nothing
+        avatar avatar > nothing
+        EOS EOS > nothing
+
+        wall avatar > nothing
+        water avatar > nothing
+        avatar door > nothing
+        avatar box > nothing
+
+    LevelMapping
+        A >  avatar
+        p > part1
+        q > part2
+        w > wall
+        x >  water
+        c >  box
+        o >  door

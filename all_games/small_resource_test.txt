@@ -1,0 +1,55 @@
+BasicGame
+  SpriteSet
+    goal  > Immovable color=GREEN
+    key   > Resource color=ORANGE limit=10
+    sword > OrientedFlicker singleton=True color=BLUE
+    avatar  > ShootAvatar   stype=sword frameRate=8 color=DARKBLUE
+    enemy >
+      monsterQuick > RandomNPC cooldown=2 cons=6 color=BROWN
+      monsterNormal > RandomNPC cooldown=4 cons=8 color=PINK
+      monsterSlow > RandomNPC cooldown=8 cons=12 color=GOLD
+    box1 > Immovable color=RED
+    box2 > Immovable color=YELLOW
+    box3 > Immovable color=PURPLE
+    box4 > Immovable color=PINK
+    wall > Immovable autotiling=true color=DARKGRAY
+
+
+  LevelMapping
+    g > goal
+    + > key
+    1 > box1
+    2 > box2
+    3 > box3
+    4 > box4
+    w > wall
+
+
+  InteractionSet
+    avatar wall  > stepBack
+    avatar goal    > nothing
+    goal avatar  > killIfOtherHasMore resource=key limit=1
+
+    avatar key > changeScore value=1
+    avatar key   > changeResource resource=key value=2
+    key avatar    > killSprite
+
+    avatar box1 > changeResource resource=key value=-1
+    avatar box2 > changeResource resource=key value=-1
+    avatar box3 > changeResource resource=key value=-1
+    avatar box4 > changeResource resource=key value=-1
+
+    box1 avatar > killIfOtherHasMore resource=key limit=0
+    box2 avatar > killIfOtherHasMore resource=key limit=0
+    box3 avatar > killIfOtherHasMore resource=key limit=0
+    box4 avatar > killIfOtherHasMore resource=key limit=0
+
+    sword goal > nothing
+    sword key > nothing
+    sword wall > nothing
+    sword avatar > nothing
+    sword sword > nothing
+
+  TerminationSet
+    SpriteCounter stype=goal   win=True
+    SpriteCounter stype=avatar win=False

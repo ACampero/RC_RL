@@ -1,0 +1,60 @@
+BasicGame
+    SpriteSet
+        wall > Immovable color=DARKGRAY
+        avatar > MovingAvatar color=DARKBLUE
+        goal > Immovable color=GREEN
+        bee > RandomNPC color=YELLOW cooldown=4
+        fence > Immovable color=PURPLE
+        sparrow > Chaser
+            sparrow1 > stype=obstacle color=LIGHTGREEN cooldown=4
+            sparrow2 > stype=bee color=LIGHTRED cooldown=4
+        lightfence > Immovable color=LIGHTBLUE
+        obstacle > Immovable color=ORANGE
+    
+    InteractionSet
+        avatar bee > killSprite
+        bee avatar > killSprite
+        avatar obstacle > killSprite
+        obstacle avatar > nothing
+        obstacle sparrow > killSprite
+        bee bee > nothing
+        bee obstacle > stepBack
+        obstacle bee > nothing
+        avatar lightfence > stepBack
+        lightfence avatar > nothing
+        bee lightfence > stepBack
+        lightfence bee > nothing
+        sparrow lightfence > nothing
+        lightfence sparrow > nothing
+        fence avatar > killSprite
+        avatar fence > nothing
+        avatar wall > stepBack
+        wall avatar > nothing
+        bee wall > stepBack
+        wall bee > nothing
+        bee fence > stepBack
+        fence bee > nothing
+        bee sparrow > killSprite
+        sparrow bee > nothing
+        sparrow fence > stepBack
+        fence sparrow > nothing
+        sparrow wall > stepBack
+        wall sparrow > nothing
+        goal avatar > killSprite
+        avatar goal > nothing
+        sparrow avatar > nothing
+        avatar sparrow > nothing
+
+    TerminationSet
+        SpriteCounter stype=goal   limit=0 win=True bonus=10
+        SpriteCounter stype=avatar limit=0 win=False
+        Timeout limit=2000 win=False
+
+    LevelMapping
+        g > goal
+        b > bee
+        1 > sparrow1
+        2 > sparrow2
+        f > fence
+        l > lightfence
+        o > obstacle

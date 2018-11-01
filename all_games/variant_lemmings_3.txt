@@ -1,0 +1,134 @@
+BasicGame
+    SpriteSet
+        hole   > Immovable color=LIGHTBLUE 
+        shovel > Flicker color=BROWN limit=1 singleton=True 
+
+        entrance > SpawnPoint total=20 spawnCooldown=50 stype=lemming color=PURPLE 
+        goal > Immovable color=GREEN
+
+        avatar  > ShootAvatar stype=shovel color=DARKBLUE
+        lemming > Chaser  stype=goal speed=1 cooldown=5 color=RED
+        mole > Chaser stype=wall cooldown=5 color=YELLOW
+        molebox > Immovable color=BLUE
+        snake > Chaser stype=avatar cooldown=4 color=LIGHTGREEN
+        wall > Immovable color=MPUYEI 
+    LevelMapping
+        x >  goal
+        e >  entrance
+        h >  hole
+        A >  avatar
+        m > mole
+        w >  wall
+        b > molebox
+
+    TerminationSet
+        SpriteCounter  stype=avatar  limit=0 win=False
+        MultiSpriteCounter stype1=entrance stype2=lemming limit=0 win=True bonus=10
+        Timeout limit=2000 win=False
+
+    InteractionSet
+        avatar molebox > nothing
+        molebox avatar > nothing
+        molebox shovel > transformTo stype=mole
+        molebox lemming > nothing
+        lemming molebox > nothing
+        shovel mole > nothing
+        mole shovel > nothing
+        avatar mole > killSprite
+        mole avatar > killSprite
+        wall mole > killSprite
+        mole wall > nothing
+        mole lemming > transformTo stype=snake
+        lemming snake > killSprite
+        snake lemming > nothing
+        mole goal > nothing
+        goal mole > nothing
+        mole hole > nothing
+        hole mole > nothing
+        mole EOS > stepBack
+        snake shovel > killSprite
+        shovel snake > killSprite
+
+        avatar snake > killSprite
+        snake avatar >killSprite
+        snake hole > nothing
+        hole snake > nothing
+        molebox snake > nothing
+        snake molebox > nothing
+        snake goal > nothing
+        goal snake > nothing
+        snake EOS > stepBack
+        avatar hole > changeScore value=-5
+        avatar hole  > killSprite 
+        lemming hole > changeScore value=-2
+        lemming hole  > killSprite 
+        wall shovel > changeScore value=-1
+        wall shovel  > killSprite 
+
+        lemming EOS > stepBack
+        avatar wall > stepBack
+        lemming wall > stepBack
+        avatar EOS > stepBack
+        lemming goal > killSprite 
+        lemming goal > changeScore value=2
+
+        shovel hole > nothing
+        hole shovel > nothing
+        entrance hole > nothing
+        hole entrance > nothing
+        goal hole > nothing
+        hole goal > nothing
+        wall hole > nothing
+        hole wall > nothing
+        EOS hole > nothing
+        hole EOS > nothing
+        entrance shovel > nothing
+        shovel entrance > nothing
+        goal shovel > nothing
+        shovel goal > nothing
+        avatar shovel > nothing
+        shovel avatar > nothing
+        lemming shovel > nothing
+        shovel lemming > nothing
+        EOS shovel > nothing
+        shovel EOS > nothing
+        entrance goal > nothing
+        goal entrance > nothing
+        avatar entrance > nothing
+        entrance avatar > nothing
+        entrance lemming > nothing
+        lemming entrance > nothing
+        entrance wall > nothing
+        wall entrance > nothing
+        entrance EOS > nothing
+        EOS entrance > nothing
+        avatar goal > nothing
+        goal avatar > nothing
+        wall goal > nothing
+        goal wall > nothing
+        EOS goal > nothing
+        goal EOS > nothing
+        avatar lemming > nothing
+        lemming avatar > nothing
+        wall EOS > nothing
+        EOS wall > nothing
+
+        hole hole > nothing
+        shovel shovel > nothing
+        entrance entrance > nothing
+        goal goal > nothing
+        avatar avatar > nothing
+        lemming lemming > nothing
+        wall wall > nothing
+        EOS EOS > nothing
+
+        hole avatar > nothing
+        hole lemming > nothing
+        shovel wall > nothing
+        goal lemming > nothing
+        wall avatar > nothing
+        wall lemming > nothing
+        EOS avatar > nothing
+        EOS lemming > nothing
+
+

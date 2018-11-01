@@ -1,0 +1,119 @@
+BasicGame
+    SpriteSet
+        flower > SpawnPoint stype=bee    prob=0.02 color=PINK
+ 
+        fastHell   > SpawnPoint stype=zombie prob=0.05 total=10 color=GREEN
+        slowHell   > SpawnPoint stype=zombie prob=0.03 total=10 color=RED
+
+        avatar > MovingAvatar frameRate=8 color=DARKBLUE
+        bee    > RandomNPC speed=1   cooldown=3  color=YELLOW
+        zombie > Chaser stype=avatar cooldown=6 speed=0.5 color=BROWN
+        dying_zombie > Chaser stype=avatar cooldown=6 speed=0.5 color=PURPLE
+        honey  > Resource color=GOLD limit=10
+        wall > Immovable color=DARKGRAY
+
+    InteractionSet
+        honey avatar    > changeScore value=1
+        honey avatar    > collectResource 
+        honey avatar    > killSprite
+
+        avatar wall     > stepBack
+        bee wall > stepBack
+        zombie wall > stepBack
+
+        avatar zombie   > changeScore value=-1
+        avatar zombie   > killIfHasLess resource=honey limit=-1
+        avatar zombie   > changeResource resource=honey value=-1
+        zombie avatar   > killSprite
+
+        zombie bee      > transformTo stype=dying_zombie
+        bee dying_zombie      > transformTo stype=honey
+        dying_zombie honey      > killSprite
+        avatar slowHell     > changeScore value=-1
+        avatar slowHell     > nothing 
+        avatar fastHell     > changeScore value=-1 
+        avatar fastHell     > nothing 
+
+        avatar bee > nothing
+        avatar flower > nothing
+        zombie flower > nothing
+        bee flower > nothing
+
+        zombie slowHell > nothing
+        zombie fastHell > nothing
+
+        honey zombie > nothing
+        honey bee > nothing
+        honey flower > nothing
+        honey slowHell > nothing
+        honey fastHell > nothing
+
+        fastHell flower > nothing
+        flower fastHell > nothing
+        slowHell flower > nothing
+        flower slowHell > nothing
+        dying_zombie flower > nothing
+        flower dying_zombie > nothing
+        wall flower > nothing
+        flower wall > nothing
+        bee fastHell > nothing
+        fastHell bee > nothing
+        dying_zombie fastHell > nothing
+        fastHell dying_zombie > nothing
+        bee slowHell > nothing
+        slowHell bee > nothing
+        dying_zombie slowHell > nothing
+        slowHell dying_zombie > nothing
+        honey wall > nothing
+        wall honey > nothing
+        dying_zombie avatar > nothing
+        avatar dying_zombie > nothing
+
+        dying_zombie zombie > nothing
+        zombie dying_zombie > nothing
+
+        dying_zombie wall > nothing
+        wall dying_zombie > nothing
+
+        flower flower > nothing
+
+        honey honey > nothing
+        avatar avatar > nothing
+        bee bee > nothing
+        zombie zombie > nothing
+        dying_zombie dying_zombie > nothing
+
+        flower honey > nothing
+        flower avatar > nothing
+        flower bee > nothing
+        flower zombie > nothing
+        fastHell honey > nothing
+        fastHell zombie > nothing
+    fastHell avatar > nothing
+        slowHell honey > nothing
+        slowHell avatar > nothing
+        slowHell zombie > nothing
+        honey dying_zombie > nothing
+        avatar honey > nothing
+        bee honey > nothing
+        bee avatar > nothing
+        bee zombie > nothing
+        zombie honey > nothing
+        dying_zombie bee > nothing
+        wall avatar > nothing
+        wall bee > nothing
+        wall zombie > nothing
+
+    TerminationSet
+       SpriteCounter stype=zombie limit=0 win=True bonus=10
+        SpriteCounter stype=avatar limit=0 win=False
+        Timeout limit=2000 win=False
+
+
+    LevelMapping
+        0 > flower
+        1 > slowHell
+        2 > fastHell
+        . > honey
+        - > zombie
+        w > wall

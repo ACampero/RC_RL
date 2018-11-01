@@ -1,0 +1,89 @@
+BasicGame
+    SpriteSet
+        base    > Immovable    color=WHITE 
+        avatar  > MovingAvatar color=DARKBLUE
+        missile > Missile
+            alien >  orientation=DOWN  speed=0.8 color=ORANGE
+            ghost >  orientation=DOWN speed=0.8 color=PURPLE
+            left > orientation=LEFT speed=0.8 color=LIGHTBLUE
+            right > orientation=RIGHT speed=0.8 color=GREEN
+        energy > Resource color=YELLOW limit=5
+        portal > SpawnPoint
+            portalAlien  > orientation=RIGHT   stype=alien  color=CCKQQB spawnCooldown=16  prob=0.08 total=20 
+            portalGhost  > orientation=RIGHT   stype=ghost  color=BVUTFD spawnCooldown=12  prob=0.08 total=20 
+            portalLeft > stype=left color=MPUYEI prob=0.08 spawnCooldown=10 total=40
+            portalRight > stype=right color=SCJPNE prob=0.08 spawnCooldown=10 total=40
+        wall > Immovable color=DARKGRAY
+        gate > Immovable color=LIGHTRED
+    
+    LevelMapping
+        0 > base
+        1 > portalAlien
+        2 > portalGhost
+        w > wall
+        g > gate
+        l > portalLeft
+        r > portalRight
+
+    TerminationSet
+        SpriteCounter stype=avatar limit=0 win=False
+        SpriteCounter stype=gate limit=0 win=True bonus=10
+
+    InteractionSet
+        missile gate > nothing
+        gate missile > nothing
+        gate avatar > killIfOtherHasMore resource=energy limit=5
+        avatar gate > nothing
+        avatar  wall  > stepBack
+        alien   EOS  > turnAround
+        base   alien > killSprite
+        alien avatar > changeScore value=1
+        avatar alien > changeResource resource=energy value=1
+        alien avatar > killSprite 
+        avatar ghost > killSprite 
+        avatar ghost > changeScore value=-10
+        avatar left > killSprite
+        left avatar > nothing
+        avatar right > killSprite
+        right avatar > nothing
+
+        base avatar > nothing
+        avatar base > nothing
+        base ghost > nothing
+        ghost base > nothing
+        base portal > nothing
+        portal base > nothing
+        base wall > nothing
+        wall base > nothing
+        base EOS > nothing
+        EOS base > nothing
+        avatar portal > nothing
+        portal avatar > nothing
+        avatar EOS > nothing
+        EOS avatar > nothing
+        missile missile > nothing
+
+        missile portal > nothing
+        portal missile > nothing
+        missile wall > killSprite
+
+
+        missile EOS > killSprite
+        EOS missile > nothing
+        portal portal > nothing
+        wall portal > nothing
+        portal wall > nothing
+        EOS portal > nothing
+        portal EOS > nothing
+        wall EOS > nothing
+        EOS wall > nothing
+
+        base base > nothing
+        avatar avatar > nothing
+
+        avatar alien > nothing
+        alien base > nothing
+        ghost avatar > nothing
+        wall avatar > nothing
+        avatar wall > nothing
+        EOS alien > nothing

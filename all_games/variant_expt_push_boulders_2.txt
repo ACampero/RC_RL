@@ -1,0 +1,104 @@
+BasicGame frame_rate=30
+    SpriteSet
+        avatar > MovingAvatar color=DARKBLUE
+        goal > ResourcePack color=PINK
+        poison1 > ResourcePack color=ORANGE
+        poison2 > ResourcePack color=GOLD
+        poison3 > ResourcePack color=DARKGRAY
+        box1 > ResourcePack color=GREEN
+        box2 > ResourcePack color=YELLOW
+        dynamite > ResourcePack color=PURPLE
+        fuse > ResourcePack
+            fuseright > color=BLUE
+            fuseup > color=LIGHTBLUE
+        litfuse > Missile 
+            litfuseright > color=RED orientation=RIGHT
+            litfuseup > color=LIGHTRED orientation=UP
+        wall > Immovable color=DARKGRAY
+    LevelMapping
+        p > poison1
+        q > poison2
+        1 > box1
+        2 > box2
+        w > wall
+        g > goal
+        r > fuseright
+        u > fuseup
+        z > poison3
+        d > dynamite
+    InteractionSet
+        fuse box1 > stepBack
+        box1 fuse > stepBack
+        fuse box2 > stepBack
+        box2 fuse > stepBack
+        fuse box3 > stepBack
+        box3 fuse > stepBack
+        fuse poison1 > stepBack
+        poison1 fuse > stepBack
+        fuse poison2 > stepBack
+        fuse box1 > stepBack
+        box1 fuse > stepBack
+        fuse fuse > stepBack
+        litfuse avatar > nothing
+        avatar litfuse > nothing
+        poison1 litfuse > nothing
+        litfuse poison1 > killSprite
+        poison2 litfuse > nothing
+        litfuse poison2 > killSprite
+        poison3 litfuse > nothing
+        litfuse poison3 > nothing
+        litfuse box1 > killSprite
+        box1 litfuse > nothing
+        litfuse box2 > killSprite
+        box2 litfuse > nothing
+        litfuse box3 > killSprite
+        box3 litfuse > nothing
+        dynamite litfuse > bounceForward
+        litfuse dynamite > killSprite
+        fuseright avatar > transformTo stype=litfuseright
+        fuseup avatar > transformTo stype=litfuseup
+        avatar fuse > nothing
+        dynamite dynamite > stepBack
+        avatar dynamite > stepBack
+        dynamite avatar > nothing
+        dynamite poison2 > killSprite
+        poison2 dynamite > killSprite
+        dynamite poison1 > stepBack
+        poison1 dynamite > stepBack
+        dynamite wall > stepBack
+        wall dynamite > stepBack
+        dynamite box1 > stepBack
+        box1 dynamite > stepBack
+        dynamite box2 > stepBack
+        box2 dynamite > stepBack
+        dynamite goal > killSprite
+        goal dynamite > killSprite  
+        avatar wall > stepBack
+        avatar poison1 > killSprite
+        avatar poison2 > killSprite
+        avatar poison3 > killSprite
+        goal avatar > killSprite
+        box1 avatar > bounceForward
+        box2 avatar  > killSprite
+        poison1 wall > stepBack
+        poison2 wall > stepBack
+        poison3 wall > stepBack
+        goal box1 > stepBack
+        goal box2 > stepBack
+        goal wall > stepBack
+        goal poison1 > stepBack
+        goal poison2 > stepBack
+        box1 wall    > stepBack
+        box1 box2    > nothing
+        box2 wall    > stepBack
+        box1 box1 > stepBack
+        poison1 box1 > killSprite
+        poison2 box1 > bounceForward
+        poison1 box2 > stepBack
+        poison1 box2 > stepBack
+        poison2 box2 >stepBack
+        box1 poison2 > nothing
+    TerminationSet
+        SpriteCounter stype=goal    limit=0 win=True bonus=10
+        SpriteCounter stype=avatar  limit=0 win=False
+        Timeout limit=2000 win=False

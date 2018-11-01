@@ -1,0 +1,82 @@
+BasicGame
+    SpriteSet
+        wallsuper > 
+		wall > Immovable color=DARKGRAY
+		deadbrick > Immovable color=FUSCHA
+        avatar > MovingAvatar color=DARKBLUE
+        goal > Immovable color=PURPLE
+	fuse >
+		leftFuse > Immovable color=GREEN
+		rightFuse > Immovable color=LIGHTGREEN
+		downFuse > Immovable color=RED
+		upFuse > Immovable color=PINK
+	litfuse >
+		leftLit > Missile color=BLUE orientation=LEFT
+		rightLit > Missile color=LIGHTBLUE orientation=RIGHT
+		downLit > Missile color=GOLD orientation=DOWN
+		upLit > Missile color=YELLOW orientation=UP
+	fence > Immovable color=WHITE
+	brick > Immovable color=LIGHTFUSCHA
+	
+    InteractionSet
+	avatar fence > stepBack
+	fence avatar > nothing
+	litfuse fence > nothing
+	fence litfuse > nothing
+	fence wallsuper > nothing
+	wallsuper fence > nothing
+	fence fuse > nothing
+	fuse fence > nothing
+	goal avatar > nothing
+	avatar goal > nothing
+	avatar wallsuper > stepBack
+	wallsuper avatar > nothing
+
+	goal litfuse > killSprite
+	litfuse goal > killSprite
+	litfuse litfuse > nothing
+
+	litfuse avatar > nothing
+	avatar litfuse > nothing
+	litfuse wallsuper > killSprite
+	wallsuper litfuse > nothing
+
+	brick leftLit > transformTo stype=deadbrick
+	brick rightLit > transformTo stype=deadbrick
+	brick upLit > transformTo stype=deadbrick
+	brick downLit > transformTo stype=deadbrick
+
+	litfuse brick > nothing
+	avatar brick > stepBack
+	brick avatar stepBack
+
+	avatar fuse > nothing
+	leftFuse avatar > transformTo stype=leftLit
+	rightFuse avatar > transformTo stype=rightLit
+	downFuse avatar > transformTo stype=downLit
+	upFuse avatar > transformTo stype=upLit
+
+	litfuse fuse > nothing
+	leftFuse litfuse > transformTo stype=leftLit
+	rightFuse litfuse > transformTo stype=rightLit
+	downFuse litfuse > transformTo stype=downLit
+	upFuse litfuse > transformTo stype=upLit
+
+	fuse wallsuper > nothing
+	wallsuper fuse > nothing
+	fuse fuse > nothing
+	fuse goal > nothing
+	goal fuse > nothing
+
+    TerminationSet
+        SpriteCounter stype=goal   limit=0 win=True
+        SpriteCounter stype=avatar limit=0 win=False
+
+    LevelMapping
+        g > goal
+	u > upFuse
+	d > downFuse
+	l > leftFuse
+	r > rightFuse
+	b > brick
+	f > fence

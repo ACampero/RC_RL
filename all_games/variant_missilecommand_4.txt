@@ -1,0 +1,74 @@
+BasicGame
+  SpriteSet
+    city  > Immovable color=GREEN randomtiling=0.5
+    avatar  > ShootAvatar stype=explosion color=DARKBLUE
+    incoming_slow  > Chaser stype=city color=RED speed=0.1
+    incoming_fast  > Chaser stype=city color=GOLD speed=0.3
+    hologram > Immovable color=LIGHTBLUE
+    laser > Immovable color=PURPLE
+    explosion > Flicker limit=5 color=PINK
+    wall > Immovable color=DARKGRAY
+
+  LevelMapping
+    c > city
+    m > incoming_slow
+    f > incoming_fast
+    h > hologram
+    w > wall
+    A > avatar
+
+  InteractionSet
+    laser explosion > nothing
+    explosion laser > nothing
+    laser hologram > nothing
+    hologram laser > nothing
+    explosion hologram > nothing
+    hologram explosion > nothing
+
+    incoming_slow hologram > nothing
+    hologram incoming_slow > nothing
+    incoming_fast hologram > nothing
+    hologram incoming_fast > nothing
+    incoming_slow laser > stepBack
+    laser incoming_slow > nothing
+    incoming_fast laser > stepBack
+    laser incoming_fast > nothing
+    hologram avatar > transformTo stype=laser
+    avatar hologram >nothing
+    avatar laser > nothing
+    laser avatar > nothing
+    avatar incoming_slow > nothing
+    incoming_slow avatar > nothing
+    avatar incoming_fast > nothing
+    incoming_fast avatar > nothing
+    
+    incoming_slow wall  > stepBack
+    incoming_fast wall  > stepBack
+    avatar wall  > stepBack
+    incoming_slow city > killSprite
+    incoming_slow city > changeScore value=-1
+    city incoming_slow > killSprite
+    incoming_fast city > killSprite 
+    incoming_fast city > changeScore value=-1
+    city incoming_fast > killSprite
+    avatar city > nothing
+    avatar explosion > nothing
+    incoming_slow explosion > killSprite 
+    incoming_slow explosion > changeScore value=2
+    incoming_fast explosion > killSprite
+    incoming_fast explosion > changeScore value=2
+
+    explosion explosion > nothing
+    explosion wall > nothing
+    city explosion > nothing
+    incoming_fast incoming_fast > nothing
+    incoming_fast incoming_slow > nothing
+    incoming_slow incoming_slow > nothing
+    avatar incoming_fast > nothing
+    avatar incoming_slow > nothing
+
+  TerminationSet
+    SpriteCounter stype=avatar win=False
+    SpriteCounter stype=city   win=False
+    MultiSpriteCounter stype1=incoming_slow stype2=incoming_fast win=True bonus=10
+    Timeout limit=2000 win=False

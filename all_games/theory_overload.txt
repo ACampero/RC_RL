@@ -1,0 +1,91 @@
+BasicGame
+	SpriteSet
+		c8 > ResourcePack color=GREEN
+		avatar > ShootAvatar color=DARKBLUE stype=sword
+		sword > Flicker color=RED singleton=True limit=5
+		c3 > RandomNPC color=BLUE speed=1.0 cooldown=4
+		c7 > ResourcePack color=DARKGRAY
+		c6 > ResourcePack color=BROWN
+		c5 > ResourcePack color=GOLD
+		c4 > ResourcePack color=PINK
+		weapon > Resource color=RESOURCETOADD limit=10000
+		gold > Resource color=RESOURCETOADD limit=11
+	InteractionSet
+		c5 c3 > collectResource resource=gold limit=11 value=1
+		c6 c7 > nothing
+		c8 c8 > nothing
+		c6 c8 > nothing
+		c4 c8 > nothing
+		avatar c6 > killIfHasMore resource=gold limit=11
+		c4 c5 > nothing
+		c7 c8 > nothing
+		avatar c7 > stepBack
+		sword c5 > nothing
+		c5 c7 > nothing
+		avatar EOS > stepBack
+		c3 c4 > nothing
+		c5 c8 > nothing
+		c3 c8 > nothing
+		c4 c6 > nothing
+		c5 c6 > nothing
+		c6 sword > changeScore value=1
+		c6 sword > killSprite
+		c4 avatar > changeScore value=2
+		c4 avatar > collectResource limit=10000 resource=weapon value=1
+		c8 avatar > killIfOtherHasMore resource=gold limit=11
+		c4 c7 > nothing
+		c6 c6 > nothing
+		sword sword > nothing
+		c7 c7 > nothing
+		c5 avatar > changeScore value=1
+		c5 avatar > collectResource resource=gold limit=11 value=1
+		c5 c5 > nothing
+		c4 c4 > nothing
+		sword EOS > stepBack
+		c8 EOS > stepBack
+		c4 EOS > stepBack
+		c5 EOS > stepBack
+		c3 c7 > stepBack
+		c7 EOS > stepBack
+		c3 EOS > stepBack
+		c6 EOS > stepBack
+	TerminationSet
+		MultiSpriteCounter stype0=c6 stype1=c5 limit=0 win=True
+		MultiSpriteCounter stype0=c6 stype1=c5 stype2=c4 limit=0 win=True
+		NoveltyTermination s1=sword s2=c5 win=True
+		NoveltyTermination s1=c4 s2=c4 win=True
+		NoveltyTermination s1=c4 s2=c5 win=True
+		NoveltyTermination s1=c4 s2=c6 win=True
+		NoveltyTermination s1=c4 s2=c7 win=True
+		NoveltyTermination s1=c4 s2=c8 win=True
+		NoveltyTermination s1=c5 s2=c5 win=True
+		NoveltyTermination s1=c5 s2=c6 win=True
+		NoveltyTermination s1=c5 s2=c7 win=True
+		NoveltyTermination s1=c5 s2=c8 win=True
+		NoveltyTermination s1=c6 s2=c6 win=True
+		NoveltyTermination s1=c6 s2=c7 win=True
+		NoveltyTermination s1=c6 s2=c8 win=True
+		NoveltyTermination s1=c7 s2=c7 win=True
+		NoveltyTermination s1=c7 s2=c8 win=True
+		NoveltyTermination s1=c8 s2=c8 win=True
+		SpriteCounter stype=avatar limit=0 win=False
+		SpriteCounter stype=c8 limit=0 win=True
+	LevelMapping
+		0 > c4
+		1 > c6
+		2 > c3
+		h > sword c4
+		3 > c5
+		c > avatar sword
+		4 > avatar
+		5 > c7
+		8 > sword c7
+		b > avatar c3
+		f > c8 sword
+		e > avatar c8
+		9 > avatar c6
+		6 > c8
+		j > avatar c3 sword
+		d > c3 sword
+		i > c6 c3
+		7 > sword

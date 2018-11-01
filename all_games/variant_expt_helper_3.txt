@@ -1,0 +1,56 @@
+BasicGame frame_rate=30
+    SpriteSet
+        avatar > MovingAvatar color=DARKBLUE cooldown=0
+        mover > VGDLSprite
+            chaser > Chaser
+                chaser1 > stype=box1 color=LIGHTBLUE cooldown=6 #for humans
+        wall > Immovable color=DARKGRAY
+        forcefield > Passive color=PURPLE
+        box > Passive
+            box1 > color=WHITE
+            box2 > color=GREEN    
+        gate > Missile
+            downGate > orientation=DOWN color=RED
+            upGate > orientation=UP color=ORANGE
+    LevelMapping
+        w > wall
+        a > box1
+        b > box2
+        f > forcefield
+        x > chaser1
+        d > downGate
+        u > upGate
+    InteractionSet
+        avatar wall > stepBack
+        mover wall > stepBack
+        box wall > stepBack
+        rand wall > stepBack
+        box1 avatar > bounceForward
+        box1 box2 > stepBack
+        box1 box1 > bounceForward
+        avatar chaser > nothing
+        box2 avatar > killSprite
+        box1 chaser > killSprite
+        box1 rand > killSprite
+        box1 box3 > nothing
+        avatar box3 > nothing
+        box3 chaser > killSprite
+        box1 forcefield > nothing
+        box2 forcefield > nothing
+        rand forcefield > stepBack
+        forcefield rand > stepBack
+        chaser forcefield > stepBack
+        avatar forcefield > nothing
+        avatar rand > nothing
+        chaser wall > stepBack
+        chaser box2 > stepBack
+        chaser chaser > nothing
+        missile EOS > wrapAround
+        missile avatar > killSprite
+        missile missile > reverseDirection
+        mover mover > stepBack
+    TerminationSet
+        SpriteCounter stype=avatar  limit=0 win=False
+        SpriteCounter stype=box1 limit=0 win=True bonus=10
+        Timeout limit=2000 win=False
+

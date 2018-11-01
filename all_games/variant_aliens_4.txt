@@ -1,0 +1,57 @@
+BasicGame square_size=32
+    SpriteSet
+        base    > Immovable    color=MPUYEI
+        avatar  > FlakAvatar   stype=sam color=DARKBLUE
+        missile > Missile
+            sam  > orientation=UP    color=PINK singleton=False
+            bomb > orientation=DOWN color=RED  cooldown=2 #speed=0.5
+        alien   > Bomber       stype=bomb   prob=0.06  cooldown=1 speed=0.8
+            alienGreen > color=LIGHTGREEN
+            alienBlue > color=GOLD
+        portal  > invisible=True hidden=True
+            portalSlow  > SpawnPoint   stype=alienBlue  spawnCooldown=16   total=20 color=LIGHTGRAY
+            portalFast  > SpawnPoint   stype=alienGreen  spawnCooldown=12   total=20 color=LIGHTGRAY
+
+    LevelMapping
+        0 > base
+        1 > portalSlow
+        2 > portalFast
+
+    TerminationSet
+        SpriteCounter stype=avatar limit=0 win=False
+        MultiSpriteCounter stype1=portal stype2=alien limit=0 win=True bonus=10
+        Timeout limit=2000 win=False
+
+    InteractionSet
+        avatar  EOS  > stepBack
+        alien   EOS  > turnAround
+        sam EOS  > killSprite
+        bomb EOS  > killSprite
+
+        base bomb > killSprite
+        #bomb base > killSprite
+        base sam > changeScore value=1
+        base sam > killSprite
+        sam base > killSprite
+
+        base   alien > killSprite
+        avatar alien > changeScore value=-1
+        avatar alien > killSprite
+        avatar bomb > changeScore value=-1
+        avatar bomb  > killSprite
+        alien sam > changeScore value=2
+        alien  sam   > killSprite
+        sam avatar > nothing
+        sam portal > nothing
+        portal sam > nothing
+
+        portal alien > nothing
+        alien portal > nothing
+        sam portalSlow > nothing
+        portalSlow sam > nothing
+        sam portalFast > nothing
+        portalFast sam > nothing
+        bomb sam > nothing
+        sam bomb > nothing
+        bomb alien > nothing
+        alien bomb > nothing

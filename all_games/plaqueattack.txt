@@ -1,0 +1,133 @@
+BasicGame square_size=25
+  SpriteSet
+    fullMolarInf > Immovable color=YELLOW
+    fullMolarSup > Immovable color=RED
+    deadMolarInf > Immovable color=GREEN
+    deadMolarSup > Immovable color=BLUE
+
+    avatar  > ShootAvatar stype=fluor color=DARKBLUE frameRate=8
+    hotdog > Chaser speed=0.1 stype=fullMolarInf color=ORANGE
+    burger > Chaser speed=0.1 stype=fullMolarSup color=BROWN
+
+    hotdoghole > SpawnPoint color=LIGHTGRAY portal=True stype=hotdog  prob=0.15 spawnCooldown=2 total=5 color=PURPLE #spawnCooldown should be 8
+    burgerhole > SpawnPoint color=ZFZCIB portal=True stype=burger  prob=0.15 spawnCooldown=2 total=5 color=PINK
+
+    fluor > Missile color=LIGHTBLUE
+    wall > Immovable color=DARKGRAY
+
+
+  LevelMapping
+    h > hotdog 
+    d > hotdoghole 
+    b > burger 
+    v > burgerhole 
+    n > fullMolarSup 
+    m > fullMolarInf 
+    A > avatar 
+
+  InteractionSet
+    avatar wall > stepBack
+    hotdog wall > stepBack
+    burger wall > stepBack
+    fluor hotdog > killSprite
+    fluor hotdog > changeScore value=1
+    hotdog fluor   > killSprite 
+    hotdog fluor  > changeScore value=1
+    fluor burger > killSprite
+    fluor burger > changeScore value=1
+    burger fluor   > killSprite
+    burger fluor  > changeScore value=1
+    fluor wall   > killSprite
+
+    fullMolarInf hotdog > transformTo stype=deadMolarInf
+    fullMolarInf hotdog > changeScore value=-3 
+    hotdog fullMolarInf > killSprite
+    fullMolarInf burger > transformTo stype=deadMolarInf
+    fullMolarInf burger > changeScore value=-3
+    burger fullMolarInf > killSprite
+    deadMolarInf avatar > transformTo stype=fullMolarInf
+    deadMolarInf avatar > changeScore value=1
+
+    fullMolarSup hotdog > transformTo stype=deadMolarSup
+    fullMolarSup hotdog > changeScore value=-3
+    hotdog fullMolarSup > killSprite
+    fullMolarSup burger > transformTo stype=deadMolarSup
+    fullMolarSup burger > changeScore value=-3
+    burger fullMolarSup > killSprite
+    deadMolarSup avatar > transformTo stype=fullMolarSup
+    deadMolarSup avatar > changeScore value=1
+
+    avatar fullMolarInf > nothing
+    fullMolarInf avatar > nothing
+    fluor fullMolarInf > nothing
+    fullMolarInf fluor > nothing
+
+    avatar fullMolarSup > nothing
+    fullMolarSup avatar > nothing
+    fluor fullMolarSup > nothing
+    fullMolarSup fluor > nothing
+    deadMolarInf hotdog > nothing
+    hotdog deadMolarInf > nothing
+    deadMolarInf burger > nothing
+    burger deadMolarInf > nothing
+    deadMolarInf fluor > nothing
+    fluor deadMolarInf > nothing
+
+    hotdog deadMolarSup > nothing
+    deadMolarSup hotdog > nothing
+    burger deadMolarSup > nothing
+    deadMolarSup burger > nothing
+
+    fluor deadMolarSup > nothing
+    deadMolarSup fluor > nothing
+
+    hotdog avatar > nothing
+    avatar hotdog > nothing
+    avatar burger > nothing
+    burger avatar > nothing
+    avatar hotdoghole > nothing
+    hotdoghole avatar > nothing
+    burgerhole avatar > nothing
+    avatar burgerhole > nothing
+    avatar fluor > nothing
+    fluor avatar > nothing
+    avatar EOS > nothing
+    EOS avatar > nothing
+    hotdog burger > nothing
+    burger hotdog > nothing
+    hotdog hotdoghole > nothing
+    hotdoghole hotdog > nothing
+    hotdog burgerhole > nothing
+    burgerhole hotdog > nothing
+    hotdog EOS > nothing
+    EOS hotdog > nothing
+    burger hotdoghole > nothing
+    hotdoghole burger > nothing
+    burgerhole burger > nothing
+    burger burgerhole > nothing
+    burger EOS > nothing
+    EOS burger > nothing
+    fluor hotdoghole > nothing
+    hotdoghole fluor > nothing
+    burgerhole fluor > nothing
+    fluor burgerhole > nothing
+    fluor EOS > killSprite
+    EOS fluor > nothing
+
+    avatar avatar > nothing
+    hotdog hotdog > nothing
+    burger burger > nothing
+    fluor fluor > nothing
+
+    avatar deadMolarInf > nothing
+    avatar deadMolarSup > nothing
+    wall avatar > nothing
+    wall hotdog > nothing
+    wall burger > nothing
+    wall fluor > nothing
+
+  TerminationSet
+    MultiSpriteCounter stype1=fullMolarInf stype2=fullMolarSup win=False
+    MultiSpriteCounter stype1=hotdoghole stype2=hotdog stype3=burger stype4=burgerhole limit=0 win=True bonus=10
+    Timeout limit=2000 win=False
+
