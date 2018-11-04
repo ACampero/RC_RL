@@ -86,7 +86,7 @@ class Player(object):
 
 	def save_model(self):
 
-		torch.save(self.target_net.state_dict(),'model_weights/{}_episode{}_trial{}_{}.pt'.format(self.config.game_name, self.episode, self.config.trial_num, self.config.level_switch))
+		torch.save(self.target_net.state_dict(),'model_weights/{}_trial{}_{}.pt'.format(self.config.game_name, self.config.trial_num, self.config.level_switch))
 
 	def load_model(self):
 
