@@ -1,5 +1,0 @@
-/n/home13/kevinwu/.conda/envs/pt27/lib/python2.7/site-packages/skimage/transform/_warps.py:105: UserWarning: The default mode, 'constant', will be changed to 'reflect' in skimage 0.15.
-  warn("The default mode, 'constant', will be changed to 'reflect' in "
-slurmstepd: error: Job 57332843 exceeded memory limit (16386064 > 16384000), being killed
-slurmstepd: error: Exceeded job memory limit
-slurmstepd: error: *** JOB 57332843 ON coxgpu06 CANCELLED AT 2018-10-26T15:25:20 ***
