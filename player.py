@@ -33,6 +33,9 @@ class Player(object):
 
 		self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+		torch.backends.cudnn.deterministic = True
+		torch.manual_seed = (config.random_seed)
+
 		self.game_size = np.shape(self.Env.render())
 		self.input_channels = self.game_size[2]
 		self.n_actions = len(self.Env.actions)
