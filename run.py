@@ -41,13 +41,11 @@ config.file_names = 'all_games/'
 
 print("Game: {}".format(config.game_name))
 
-random_seeds = [7,8,9,10,11]
-
 for trial_num in range(config.num_trials):
 
-	config.random_seed = random_seeds[trial_num]
-
 	config.trial_num = trial_num + 1
+
+	config.random_seed = config.trial_num
 
 	game_player = Player(config)
 

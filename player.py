@@ -33,8 +33,7 @@ class Player(object):
 
 		self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-		torch.backends.cudnn.deterministic = True
-		torch.manual_seed = (config.random_seed)
+		print('Training at seed = {}'.format(self.config.random_seed))
 
 		self.game_size = np.shape(self.Env.render())
 		self.input_channels = self.game_size[2]
@@ -228,6 +227,9 @@ class Player(object):
 		self.episode_reward = 0
 		self.reward_history = []
 		self.recent_history = [0]*int(self.config.criteria.split('/')[1])
+
+		torch.backends.cudnn.deterministic = True
+		torch.manual_seed = (self.config.random_seed)
 
 		self.Env.reset()
 		last_screen = self.get_screen()
