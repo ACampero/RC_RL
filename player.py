@@ -310,7 +310,7 @@ class Player(object):
 
                 if self.level_step(): break
 
-                print(self.recent_history)
+                # print(self.recent_history)
                 print("Print Current Level: {}".format(self.Env.lvl))
 
                 self.Env.reset()
