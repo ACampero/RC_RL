@@ -30,7 +30,7 @@ parser.add_argument('-level_switch', default = 'sequential', type = str, require
 parser.add_argument('-timeout', default = 2000, type = int, required = False)
 parser.add_argument('-criteria', default = '1/0', type = str, required = False)
 parser.add_argument('-game_name', default = 'aliens', required = False)
-parser.add_argument('-num_trials', default = 1, , type = int, required = False)
+parser.add_argument('-num_trials', default = 1, type = int, required = False)
 parser.add_argument('-random_seed', default = 7, type = int, required = False)
 
 config = parser.parse_args();
