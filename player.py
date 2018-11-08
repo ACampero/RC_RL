@@ -290,12 +290,12 @@ class Player(object):
 
             if self.ended or self.episode_steps > self.config.timeout:
 
-                if self.ended: print("FINISHED LEVEL")
+                if self.episode_steps > self.config.timeout: print("Game Timed Out")
 
                 self.episode += 1
 
                 # pdb.set_trace()
-                print("Episode Reward at step {}: {}".format(self.steps, self.episode_reward))
+                print("Level {}, episode reward at step {}: {}".format(self.Env.lvl, self.steps, self.episode_reward))
                 sys.stdout.flush()
                 
                 # Update the target network
@@ -316,7 +316,7 @@ class Player(object):
 
                 self.episode_reward = 0
                 # print(self.recent_history)
-                print("Print Current Level: {}".format(self.Env.lvl))
+                # print("Print Current Level: {}".format(self.Env.lvl))
 
                 self.Env.reset()
                 self.episode_steps = 0
