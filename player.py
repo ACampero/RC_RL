@@ -21,7 +21,7 @@ import os
 from pygame.locals import K_RIGHT, K_LEFT, K_UP, K_DOWN, K_SPACE
 #colors from VGDL?
 
-
+    
 class Player(object):
 
     def __init__(self, config):
@@ -104,6 +104,7 @@ class Player(object):
 
                 if self.Env.lvl == len(self.Env.env_list)-1: # if this is the last training level
                     print("Learning Finished")
+
                     return 1
 
                 else: #if this isn't the last level
@@ -308,7 +309,14 @@ class Player(object):
                 self.recent_history.insert(0, self.win)
                 self.recent_history.pop()
 
-                if self.level_step(): break
+                if self.level_step(): 
+
+                    with open('reward_histories/{}_reward_history_{}_trial{}.csv'.format(self.config.game_name, self.config.level_switch, self.config.trial_num), "ab") as file:
+                        writer = csv.writer(file)
+                        episode_results[0] = 'DONE'
+                        writer.writerow(episde_results)
+
+                    break
 
                 # print(self.recent_history)
                 print("Print Current Level: {}".format(self.Env.lvl))
@@ -322,9 +330,7 @@ class Player(object):
                 # if not self.episode % 10:
                 # np.save("reward_histories/{}_reward_history_{}_trial{}.npy".format(self.config.game_name, self.config.level_switch, self.config.trial_num), self.reward_history)
                 # np.savetxt('reward_histories/{}_reward_history_{}_trial{}.csv'.format(self.config.game_name, self.config.level_switch, self.config.trial_num), a, fmt='%.2f', delimiter=',', header=" level,  steps,  ep_reward,  win")
-                with open('reward_histories/{}_reward_history_{}_trial{}.csv'.format(self.config.game_name, self.config.level_switch, self.config.trial_num), "ab") as file:
-                    writer = csv.writer(file)
-                    writer.writerow(episde_results)
+                
 
                 # self.save_gif()
                 self.screen_history = []
