@@ -304,8 +304,6 @@ class Player(object):
                 # self.reward_history.append([self.Env.lvl, self.steps, self.episode_reward, self.win])
                 episde_results = [self.Env.lvl, self.steps, self.episode_reward, self.win, self.config.game_name, int(self.config.criteria.split('/')[0])]
 
-                self.episode_reward = 0
-
                 self.recent_history.insert(0, self.win)
                 self.recent_history.pop()
 
@@ -313,11 +311,10 @@ class Player(object):
 
                     with open('reward_histories/{}_reward_history_{}_trial{}.csv'.format(self.config.game_name, self.config.level_switch, self.config.trial_num), "ab") as file:
                         writer = csv.writer(file)
-                        episode_results[0] = 'DONE'
                         writer.writerow(episde_results)
-
                     break
 
+                self.episode_reward = 0
                 # print(self.recent_history)
                 print("Print Current Level: {}".format(self.Env.lvl))
 
