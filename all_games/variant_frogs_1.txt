@@ -14,7 +14,6 @@ BasicGame
             leftTruck  > Missile   orientation=LEFT
                 fastLtruck  > speed=0.7  color=LIGHTORANGE
                 slowLtruck  > speed=0.3  color=LIGHTRED
-
         avatar > MovingAvatar color=DARKBLUE
         wall > Immovable color=DARKGRAY
 
@@ -73,13 +72,9 @@ BasicGame
         g > goal
         0 > water
         1 > forestDense water       # note how a single character can spawn multiple sprites
-        # 1 > water       # note how a single character can spawn multiple sprites
         2 > forestDense log
-        # 2 > log
         3 > forestSparse water       # note how a single character can spawn multiple sprites
-        # 3 > water       # note how a single character can spawn multiple sprites
         4 > forestSparse log
-        # 4 > log
         - > slowRtruck
         x > fastRtruck
         _ > slowLtruck
@@ -87,3 +82,4 @@ BasicGame
         = > log water
         w > wall
         B > water log avatar
+	

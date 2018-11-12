@@ -1,11 +1,11 @@
 wwwwwwwwwwwwwwwwwwwwwwwwwwww
-+++++++++++w+g+w++++++++++++
-0000000000000000000000000000
-0000000000000000000000000000
-0000000000000000000000000000
-wwwwwwwww+++++wwwwwwwwwwwwww
-w...        ...  m    xx...w
-w ...m.xxx....m..   ...   .w
-w.         m   ..  xx..    w
-w+++++++A++++++++++++++++++w
+++++++++++++wgw+++++++++++++
+00===0========0============2
+00000==================00012
+000===000===000===========02
+wwwwwwwww+q+wwwwwwwwwwwwwwww
+w...   xxx. ...     xxxx...w
+w-.....xxx.......   ....xx.w
+w.xxx.         ..xxxx..xxx.w
+w+++++++A+++++++++++++++++pw
 wwwwwwwwwwwwwwwwwwwwwwwwwwww

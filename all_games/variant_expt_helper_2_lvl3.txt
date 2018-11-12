@@ -1,7 +1,7 @@
 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
 w     bb        gg      ff     w
-wx    bb        gg c    ff a   w
-w     bb        gg   c  ff     w
+wx    bb        gg      ff a   w
+w     bb        gg      ff     w
 w     bb        gg  A   ff  a  w
 w     bb        gg      ff     w
 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww

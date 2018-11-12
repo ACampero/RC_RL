@@ -25,7 +25,8 @@ BasicGame
         f > fence
     TerminationSet
         SpriteCounter stype=avatar limit=0 win=False
-        Timeout limit=500 win=True bonus=.02
+        MultiSpriteCounter stype1=sharkhole stype2=shark limit=0 win=True bonus=10
+        Timeout limit=2000 win=False
 
     InteractionSet
         piranha fence > nothing
@@ -62,7 +63,7 @@ BasicGame
         torpedo piranha > killSprite
 
         sharkFang avatar > collectResource 
-        sharkFang avatar > changeScore value=1000
+
         avatar shell > changeResource resource=shell value=5 
         shell avatar > killSprite
         shell avatar > changeScore value=1

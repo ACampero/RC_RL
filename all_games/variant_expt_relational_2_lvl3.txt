@@ -1,10 +1,10 @@
 wwwwwwwwwwwwwwwwwwwwww
-w         w          w
+wy  z     w    z    yw
 w         x          w
-w            y  w    w
-w    w               w
-w          y   z     w
-w   x    z           w
+wz              w    w
+w    w              zw
+wz                   w
+w   x               zw
 w              w     w
-w          A         w
+wy  z      A   z    yw
 wwwwwwwwwwwwwwwwwwwwww

@@ -24,7 +24,7 @@ BasicGame
         mud mud > nothing
         mud avatar > nothing
         avatar mud > nothing
-        mud wall > stepBack
+        mud wall > killSprite
         wall mud > nothing
         mud goal > nothing
         goal mud > nothing

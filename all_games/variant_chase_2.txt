@@ -13,6 +13,7 @@ BasicGame
     InteractionSet
         missile wall > killSprite
         wall missile > nothing
+        goat missile > changeScore value=1
         goat missile > killSprite
         missile goat > killSprite
         missile carcass > killSprite

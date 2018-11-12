@@ -68,4 +68,4 @@ BasicGame
   TerminationSet
     SpriteCounter stype=goal   win=True
     SpriteCounter stype=avatar win=False
-    Timeout limit=20 win=False
+    Timeout limit=2000 win=False

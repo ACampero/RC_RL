@@ -6,8 +6,8 @@ BasicGame
     deadMolarSup > Immovable color=BLUE
 
     avatar  > ShootAvatar stype=fluor color=DARKBLUE
-    hotdog > Chaser speed=0.1 stype=fullMolarInf color=ORANGE
-    burger > Chaser speed=0.1 stype=fullMolarSup color=BROWN
+    hotdog > Chaser speed=1 cooldown=10 stype=fullMolarInf color=ORANGE
+    burger > Chaser speed=1 cooldown=10 stype=fullMolarSup color=BROWN
 
     hotdoghole > SpawnPoint color=LIGHTGRAY portal=True stype=hotdog  prob=0.15 spawnCooldown=8 total=5 color=PURPLE #spawnCooldown should be 8
     burgerhole > SpawnPoint color=ZFZCIB portal=True stype=burger  prob=0.15 spawnCooldown=8 total=5 color=PINK

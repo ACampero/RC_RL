@@ -7,7 +7,7 @@ BasicGame
             ghost >  orientation=DOWN speed=0.8 color=PURPLE
             left > orientation=LEFT speed=0.8 color=LIGHTBLUE
             right > orientation=RIGHT speed=0.8 color=GREEN
-        energy > Resource color=YELLOW limit=5
+        energy > Resource color=YELLOW limit=3
         portal > SpawnPoint
             portalAlien  > orientation=RIGHT   stype=alien  color=CCKQQB spawnCooldown=16  prob=0.08 total=20 
             portalGhost  > orientation=RIGHT   stype=ghost  color=BVUTFD spawnCooldown=12  prob=0.08 total=20 
@@ -32,7 +32,7 @@ BasicGame
     InteractionSet
         missile gate > nothing
         gate missile > nothing
-        gate avatar > killIfOtherHasMore resource=energy limit=5
+        gate avatar > killSprite
         avatar gate > nothing
         avatar  wall  > stepBack
         alien   EOS  > turnAround

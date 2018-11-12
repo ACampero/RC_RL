@@ -1,6 +1,6 @@
 BasicGame frame_rate=30
     SpriteSet
-        avatar > MovingAvatar color=DARKBLUE cooldown=0
+        avatar > ShootAvatar stype=box3 color=DARKBLUE
         mover > VGDLSprite
             rand > RandomNPC color=LIGHTBLUE cooldown=12 #for humans, 2 for Planner
             chaser > Chaser
@@ -11,8 +11,8 @@ BasicGame frame_rate=30
         box > Passive
             box1 > color=WHITE
             box2 > color=GREEN
-            box3 > color=YELLOW
         bridge > Passive color=BROWN
+        box3 > Missile color=YELLOW
     LevelMapping
         w > wall
         a > box1
@@ -23,6 +23,9 @@ BasicGame frame_rate=30
         x > chaser1
         r > rand
     InteractionSet
+    	box2 box3 > nothing
+    	box3 box2 > nothing
+    	box3 box3 > nothing
         chaser bridge > nothing
         bridge chaser > nothing
         avatar bridge > nothing
@@ -47,7 +50,7 @@ BasicGame frame_rate=30
         box3 forcefield2 > transformTo stype=bridge
         forcefield2 box3 > nothing
         forcefield2 bridge > killSprite
-        box3 avatar > bounceForward
+        box3 avatar > nothing
         avatar box3 > nothing
         avatar wall > stepBack
         mover wall > stepBack
@@ -59,8 +62,8 @@ BasicGame frame_rate=30
         avatar chaser > nothing
         box2 avatar > killSprite
         box1 chaser > killSprite
-        box1 box3 > stepBack
-        box3 box1 > stepBack    
+        box1 box3 > nothing
+        box3 box1 > nothing    
         box1 rand > killSprite
         box1 forcefield > nothing
         forcefield box1 > nothing
@@ -77,6 +80,10 @@ BasicGame frame_rate=30
         chaser box2 > stepBack
         chaser chaser > nothing
         mover mover > stepBack
+        box3 wall > killSprite
+        wall box3 > nothing
+        box3 chaser > nothing
+        chaser box3 > nothing
     TerminationSet
         SpriteCounter stype=avatar  limit=0 win=False
         SpriteCounter stype=box1 limit=0 win=True bonus=10

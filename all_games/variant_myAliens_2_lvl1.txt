@@ -4,7 +4,7 @@ wr                             w
 w                             lw
 wr                             w
 w                             lw
-wr                             w
+wr                            gw
 w               A             lw
 wr                             w
 w                             lw

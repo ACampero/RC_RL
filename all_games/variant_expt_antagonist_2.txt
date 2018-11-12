@@ -2,8 +2,8 @@ BasicGame frame_rate=30
     SpriteSet
         avatar > MovingAvatar color=DARKBLUE
         chaser > VGDLSprite
-        mediumChaser > Chaser color=LIGHTGREEN cooldown=5 stype=box2
-        redChaser > Chaser color=RED cooldown=5 stype=box3
+            mediumChaser > Chaser color=LIGHTGREEN cooldown=5 stype=box2
+            redChaser > Chaser color=RED cooldown=5 stype=box3
         forcefield > Passive color=LIGHTBLUE
         forcefield2 > Passive color=SCJPNE
         wall > Immovable color=DARKGRAY

@@ -5,7 +5,7 @@ w                             lw
 wr              A              w
 w                             lw
 wr                             w
-w                             lw
+wg                            lw
 wr                             w
 w                             lw
 wr                             w

@@ -137,7 +137,7 @@ class Player(object):
 
             self.target_net.load_state_dict(self.policy_net.state_dict())
 
-            if self.episode_reward > self.best_reward:
+            if self.episode_reward > self.best_reward or self.steps %50000:
                 self.best_reward = self.episode_reward
                 print("New Best Reward: {}".format(self.best_reward))
                 self.save_model()

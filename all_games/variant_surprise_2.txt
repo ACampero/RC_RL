@@ -5,7 +5,7 @@ BasicGame
         fence > Immovable color=SCJPNE        
         citizen > 
             quiet > RandomNPC speed=0.4 color=GREEN
-            avatar > ShootAvatar stype=wand color=DARKBLUE
+            avatar > MovingAvatar color=DARKBLUE
         wand > Flicker limit=5 color=LIGHTBLUE
 
         george > Chaser color=YELLOW stype=quiet speed=0.1

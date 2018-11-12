@@ -40,9 +40,9 @@ BasicGame
 
         avatar wall > stepBack
         box avatar > bounceForward
-        box wall > undoAll
-        box box > undoAll
-        wall box > undoAll
+        box wall > stepBack
+        box box > stepBack
+        wall box > stepBack
         water box > killSprite
         box water > killSprite
         avatar water > killSprite
