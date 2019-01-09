@@ -28,6 +28,8 @@ class Player(object):
 
         self.config = config
 
+        # print(self.config.game_name)
+
         self.Env = VGDLEnv(self.config.game_name, 'all_games')
 
         self.Env.set_level(0)

@@ -1,0 +1,573 @@
+/n/home13/kevinwu/.conda/envs/pt27/lib/python2.7/site-packages/skimage/transform/_warps.py:105: UserWarning: The default mode, 'constant', will be changed to 'reflect' in skimage 0.15.
+  warn("The default mode, 'constant', will be changed to 'reflect' in "
+/n/home13/kevinwu/.conda/envs/pt27/lib/python2.7/site-packages/skimage/transform/_warps.py:110: UserWarning: Anti-aliasing will be enabled by default in skimage 0.15 to avoid aliasing artifacts when down-sampling images.
+  warn("Anti-aliasing will be enabled by default in skimage 0.15 to "
+Namespace(batch_size=32, criteria='1/1', cuda=1, doubleq=1, eps_decay=200.0, eps_end=0.1, eps_start=1, game_name='variant_boulderdash_1', gamma=0.999, img_size=64, level_switch='sequential', lr=0.00025, max_mem=50000, max_steps=1000000.0, model_name='DQN', model_weight_path=None, num_episodes=20000, num_trials=1, pretrain=0, random_seed=7, target_update=100, test_mode=0, timeout=2000, trial_num='1')
+Game: variant_boulderdash_1
+variant_boulderdash_1
+Training at seed = 1
+Training Starting
+-------------------------
+Level 0, episode reward at step 148: -1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 0, episode reward at step 429: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 0, episode reward at step 623: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 0, episode reward at step 740: 1
+Level 0, episode reward at step 916: -1
+Level 0, episode reward at step 1246: -1
+Level 0, episode reward at step 1322: -1
+Level 0, episode reward at step 1357: -1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 0, episode reward at step 1501: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 0, episode reward at step 1674: 1
+Level 0, episode reward at step 1792: -1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 0, episode reward at step 3061: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 0, episode reward at step 3381: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 0, episode reward at step 5379: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 0, episode reward at step 7377: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 0, episode reward at step 8632: 7
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 0, episode reward at step 9059: 7
+Level 0, episode reward at step 9284: -1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 0, episode reward at step 9658: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 0, episode reward at step 9819: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 0, episode reward at step 11817: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 0, episode reward at step 12708: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 0, episode reward at step 13247: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 0, episode reward at step 13977: 5
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 0, episode reward at step 14385: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 0, episode reward at step 14779: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 0, episode reward at step 16777: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 0, episode reward at step 18141: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 0, episode reward at step 18735: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 0, episode reward at step 19614: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 0, episode reward at step 21353: 5
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 0, episode reward at step 23351: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 0, episode reward at step 25349: 7
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 0, episode reward at step 27347: 5
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 0, episode reward at step 27404: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 0, episode reward at step 27440: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 0, episode reward at step 29438: 5
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 0, episode reward at step 29914: 5
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 0, episode reward at step 30670: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 0, episode reward at step 32668: 11
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 0, episode reward at step 33566: 5
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 0, episode reward at step 35564: 5
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 0, episode reward at step 37562: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 0, episode reward at step 39560: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 0, episode reward at step 41558: 5
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 0, episode reward at step 42467: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 0, episode reward at step 42631: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 0, episode reward at step 44629: 5
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 0, episode reward at step 46627: 5
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 0, episode reward at step 47953: 2
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 0, episode reward at step 48120: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 0, episode reward at step 49014: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 0, episode reward at step 49311: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 0, episode reward at step 51309: 5
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 0, episode reward at step 52842: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 0, episode reward at step 54840: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 0, episode reward at step 54888: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 0, episode reward at step 54923: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 0, episode reward at step 56921: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 0, episode reward at step 57782: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 0, episode reward at step 59427: 9
+Next Level!
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 1, episode reward at step 59451: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 61449: 7
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 1, episode reward at step 62006: 3
+Level 1, episode reward at step 62032: -1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 64030: 9
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 1, episode reward at step 64631: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 1, episode reward at step 66629: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 68627: 9
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 70625: 9
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 71101: 9
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 73099: 9
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 75097: 8
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 77095: 11
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 1, episode reward at step 79093: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 80675: 5
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 82673: 11
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 84671: 9
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 85135: 5
+Level 1, episode reward at step 85218: -1
+Level 1, episode reward at step 85421: -1
+Level 1, episode reward at step 85444: -1
+Level 1, episode reward at step 85512: -1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 1, episode reward at step 85532: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 86585: 11
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 1, episode reward at step 86642: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 87501: 13
+Level 1, episode reward at step 87515: -1
+Level 1, episode reward at step 87523: -1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 1, episode reward at step 87603: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 1, episode reward at step 87686: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 89684: 13
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 1, episode reward at step 89762: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 90305: 11
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 90795: 9
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 1, episode reward at step 91847: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 1, episode reward at step 91908: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 92044: 5
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 93005: 11
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 93764: 13
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 95762: 9
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 1, episode reward at step 96000: 3
+New Best Reward: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 96101: 5
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 96204: 9
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 96334: 9
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 1, episode reward at step 96349: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 1, episode reward at step 96373: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 1, episode reward at step 96396: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 96426: 5
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 98424: 6
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 98701: 5
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 98962: 17
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 99057: 9
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 99290: 9
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 1, episode reward at step 99299: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 1, episode reward at step 99567: 9
+Next Level!
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 2, episode reward at step 99897: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 2, episode reward at step 100233: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 2, episode reward at step 100309: 11
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 2, episode reward at step 100645: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 2, episode reward at step 100925: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 2, episode reward at step 100997: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 2, episode reward at step 101349: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 2, episode reward at step 102231: 7
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 2, episode reward at step 102347: 9
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 2, episode reward at step 102415: 7
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 2, episode reward at step 104148: 5
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 2, episode reward at step 104226: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 2, episode reward at step 104729: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 2, episode reward at step 104867: 7
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 2, episode reward at step 105480: 3
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 2, episode reward at step 106288: 9
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 2, episode reward at step 107416: 7
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 2, episode reward at step 107629: 7
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 2, episode reward at step 107681: 9
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 2, episode reward at step 107802: 5
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 2, episode reward at step 107926: 9
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 2, episode reward at step 107976: 7
+Next Level!
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 3, episode reward at step 109049: 5
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 3, episode reward at step 109542: 5
+Level 3, episode reward at step 109577: -1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 3, episode reward at step 110012: 1
+Level 3, episode reward at step 110056: -1
+Level 3, episode reward at step 110094: -1
+Level 3, episode reward at step 110225: -1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 3, episode reward at step 110976: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 3, episode reward at step 111609: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+Level 3, episode reward at step 111877: 3
+Level 3, episode reward at step 111894: -1
+Level 3, episode reward at step 111904: -1
+Level 3, episode reward at step 112333: -1
+Level 3, episode reward at step 112348: -1
+Level 3, episode reward at step 112434: -1
+Level 3, episode reward at step 112489: -1
+Level 3, episode reward at step 112637: -1
+Level 3, episode reward at step 112648: -1
+Level 3, episode reward at step 112943: -1
+Level 3, episode reward at step 113104: -1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 3, episode reward at step 113243: 7
+Next Level!
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+Level 4, episode reward at step 113604: 1
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 4, episode reward at step 115602: 12
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 4, episode reward at step 115999: 6
+collectResource defaultdict(<type 'int'>, {'diamond': 1})
+collectResource defaultdict(<type 'int'>, {'diamond': 2})
+collectResource defaultdict(<type 'int'>, {'diamond': 3})
+Level 4, episode reward at step 116057: 7
+Learning Finished
+Done training ALL!

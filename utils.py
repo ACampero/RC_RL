@@ -36,11 +36,22 @@ def load_game(game_name, games_folder):
 	for file in os.listdir(games_folder):
 		# import pdb; pdb.set_trace()
 		if 'DS' not in file:
-			if game_name == file.split('.txt')[0] or game_name == file.split('_lvl')[0]:
-				if 'lvl' not in file: file_list['game'] = file
-				else: 
-					level = file.split('_lvl')[1][0]
-					file_list[int(level)] = file
+
+			if 'expt_ee' in game_name:
+				if game_name in file:
+					if 'lvl' not in file:
+						level = file.split('desc_')[1][0]
+						file_list['game_{}'.format(level)] = file
+					else:
+						level = file.split('_lvl')[1][0]
+						file_list[int(level)] = file
+			else:
+				if game_name == file.split('.txt')[0] or game_name == file.split('_lvl')[0]:
+					if 'lvl' not in file: 
+						file_list['game'] = file
+					else: 
+						level = file.split('_lvl')[1][0]
+						file_list[int(level)] = file
 
 	# new_doc = ''
 	# with open('all_games/{}'.format(file_list['game']), 'r') as f:
@@ -54,12 +65,24 @@ def load_game(game_name, games_folder):
 	# 	new_doc = "\n".join(new_doc)
 
 	# import pdb; pdb.set_trace()
-	with open('all_games/{}'.format(file_list['game']), 'r') as game:
-		gameString = game.read()
+
+	if 'expt_ee' not in game_name:
+
+		with open('all_games/{}'.format(file_list['game']), 'r') as game:
+			gameString = game.read()
 
 	env_list = {}
 
-	for lvl_idx in range(len(file_list.keys())-1):
+	num_levels = len(file_list.keys())-1
+	if 'expt_ee' in game_name:
+		num_levels = int(len(file_list.keys())/2)
+
+	for lvl_idx in range(num_levels):
+
+		if 'expt_ee' in game_name:
+
+			with open('all_games/{}'.format(file_list['game_{}'.format(lvl_idx)]), 'r') as game:
+				gameString = game.read()
 
 		with open('all_games/{}'.format(file_list[lvl_idx]), 'r') as level:
 			levelString = level.read()

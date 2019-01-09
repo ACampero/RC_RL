@@ -43,7 +43,7 @@ print("Game: {}".format(config.game_name))
 
 for trial_num in range(config.num_trials):
 
-	config.trial_num = trial_num + 1
+	config.trial_num =  trial_num + int(config.trial_num)
 
 	config.random_seed = config.trial_num
 
@@ -52,6 +52,18 @@ for trial_num in range(config.num_trials):
 	game_player.train_model()
 
 print("Done training ALL!")
+
+# for trial_num in range(config.num_trials):
+
+# 	config.trial_num = trial_num + 1
+
+# 	config.random_seed = config.trial_num
+
+# 	game_player = Player(config)
+
+# 	game_player.train_model()
+
+# print("Done training ALL!")
 
 
 

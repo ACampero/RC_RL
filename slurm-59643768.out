@@ -1,0 +1,39 @@
+/n/home13/kevinwu/.conda/envs/pt27/lib/python2.7/site-packages/skimage/transform/_warps.py:105: UserWarning: The default mode, 'constant', will be changed to 'reflect' in skimage 0.15.
+  warn("The default mode, 'constant', will be changed to 'reflect' in "
+/n/home13/kevinwu/.conda/envs/pt27/lib/python2.7/site-packages/skimage/transform/_warps.py:110: UserWarning: Anti-aliasing will be enabled by default in skimage 0.15 to avoid aliasing artifacts when down-sampling images.
+  warn("Anti-aliasing will be enabled by default in skimage 0.15 to "
+Namespace(batch_size=32, criteria='1/1', cuda=1, doubleq=1, eps_decay=200.0, eps_end=0.1, eps_start=1, game_name='variant_frogs_1', gamma=0.999, img_size=64, level_switch='sequential', lr=0.00025, max_mem=50000, max_steps=1000000.0, model_name='DQN', model_weight_path=None, num_episodes=20000, num_trials=1, pretrain=0, random_seed=7, target_update=100, test_mode=0, timeout=2000, trial_num='1')
+Game: variant_frogs_1
+Training at seed = 1
+Training Starting
+-------------------------
+Level 0, episode reward at step 123: -1
+Level 0, episode reward at step 129: -1
+Level 0, episode reward at step 542: -1
+Level 0, episode reward at step 549: -1
+Level 0, episode reward at step 2010: -1
+Level 0, episode reward at step 2017: -1
+Level 0, episode reward at step 2028: -1
+Level 0, episode reward at step 2037: -1
+Level 0, episode reward at step 2042: -1
+Level 0, episode reward at step 2050: -1
+Level 0, episode reward at step 2165: -1
+Level 0, episode reward at step 2355: -1
+Level 0, episode reward at step 2928: -1
+Level 0, episode reward at step 2939: -1
+Level 0, episode reward at step 2948: -1
+Level 0, episode reward at step 2955: -1
+Level 0, episode reward at step 2962: -1
+Level 0, episode reward at step 2972: -1
+Level 0, episode reward at step 2981: -1
+Level 0, episode reward at step 4132: -1
+Level 0, episode reward at step 4141: -1
+Level 0, episode reward at step 4150: -1
+Level 0, episode reward at step 5058: -1
+Level 0, episode reward at step 5718: -1
+Level 0, episode reward at step 6422: -1
+Level 0, episode reward at step 6428: -1
+Level 0, episode reward at step 6537: -1
+Level 0, episode reward at step 6612: -1
+Level 0, episode reward at step 8502: -1
+slurmstepd: error: *** JOB 59643768 ON aagk80gpu11 CANCELLED AT 2018-11-19T11:21:24 ***

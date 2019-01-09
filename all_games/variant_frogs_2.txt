@@ -1,6 +1,6 @@
 BasicGame
 	SpriteSet
-		safety > Resource  limit=2 color=BROWN
+		safety > Resource  limit=4 color=BROWN
 		structure > Immovable
 			water > color=MPUYEI
 			goal  > color=GREEN
