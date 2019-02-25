@@ -16,6 +16,7 @@ import imageio
 import sys
 from VGDLEnv import VGDLEnv
 import csv
+import cloudpickle
 
 import os
 from pygame.locals import K_RIGHT, K_LEFT, K_UP, K_DOWN, K_SPACE
@@ -238,8 +239,6 @@ class Player(object):
             writer = csv.writer(file)
             writer.writerow(["level", "steps", "ep_reward", "win", "game_name", "criteria"])
 
-        ## PEDRO: 1. Open csv file for writing.
-        ## Note: I didn't handle folder creation.
         with open('object_interaction_histories/{}_object_interaction_history_{}_trial{}.csv'.format(
                 self.config.game_name, self.config.level_switch, self.config.trial_num), "wb") as file:
             interactionfilewriter = csv.writer(file)
@@ -247,6 +246,8 @@ class Player(object):
                 ['agent_type', 'subject_ID', 'modelrun_ID', 'game_name', 'game_level', 'episode_number', 'event_name',
                  'count'])
 
+        ## PEDRO: Rename as needed
+        picklefilepath = 'pickleFiles/{}.csv'.format(self.config.game_name)
 
         self.recent_history = [0] * int(self.config.criteria.split('/')[1])
 
@@ -254,6 +255,15 @@ class Player(object):
         torch.manual_seed = (self.config.random_seed)
 
         self.Env.reset()
+        ## store game info once
+        # pdb.set_trace()
+        ## each episode gets a list of tuples, where each tuple has (avatar.x,, avatar.y, game.time, level_number)
+        avatar_position_data = {'game_info': (self.Env.current_env._game.width, self.Env.current_env._game.height),
+                                'episodes': [[(self.Env.current_env._game.sprite_groups['avatar'][0].rect.left,
+                                               self.Env.current_env._game.sprite_groups['avatar'][0].rect.top,
+                                               self.Env.current_env._game.time,
+                                               self.Env.lvl)]]}
+
         event_dict = defaultdict(lambda: 0)
         last_screen = self.get_screen()
         current_screen = self.get_screen()
@@ -273,12 +283,24 @@ class Player(object):
             # Select and perform an action
             self.action = self.select_action()
 
-            # import pdb; pdb.set_trace()
-
             self.reward, self.ended, self.win = self.Env.step(self.action.item())
 
-            ## PEDRO: 2. Store events that occur at each timestep, add them to an event dictionary that
-            timestep_events = set([tuple(sorted((e[1], e[2]))) for e in self.Env.current_env._game.effectListByClass])
+            avatar_position_data['episodes'][-1].append((self.Env.current_env._game.sprite_groups['avatar'][0].rect.left,
+                                                         self.Env.current_env._game.sprite_groups['avatar'][0].rect.top,
+                                                         self.Env.current_env._game.time,
+                                                         self.Env.lvl))
+
+            ## PEDRO: 2. Store events that occur at each timestep
+            timestep_events = set()
+            for e in self.Env.current_env._game.effectListByClass:
+                ## because event handling is so weird in Frogs, we need to filter out these events.
+                ## Avatar-water and avatar-log collisions will still be reported from the (killSprite avatar water) interaction and (pullWithIt avatar log) interaction
+                ## which is what a player perceives when they play
+                if e in [('changeResource', 'avatar', 'water'), ('changeResource', 'avatar', 'log')]:
+                    pass
+                else:
+                    timestep_events.add(tuple(sorted((e[1], e[2]))))
+
             for e in timestep_events:
                 event_dict[e] += 1
             # if self.episode_reward < 0: pdb.set_trace()
@@ -350,6 +372,17 @@ class Player(object):
                 # print("Print Current Level: {}".format(self.Env.lvl))
 
                 self.Env.reset()
+
+                ## PEDRO: Write pickle to file every 100 episodes
+                if self.episode % 2 == 0:
+                    with open(picklefilepath, 'wb') as f:
+                        cloudpickle.dump(avatar_position_data, f)
+
+                ## add a new list for the new episode; populate new list with tuple of first state
+                avatar_position_data['episodes'].append([(self.Env.current_env._game.sprite_groups['avatar'][0].rect.left,
+                                                          self.Env.current_env._game.sprite_groups['avatar'][0].rect.top,
+                                                          self.Env.current_env._game.time, self.Env.lvl)])
+
                 event_dict = defaultdict(lambda: 0)
                 self.episode_steps = 0
                 last_screen = self.get_screen()
