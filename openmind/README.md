@@ -9,6 +9,7 @@ Step 1. Folder setup
 For these scripts to work properly, setup is as follows:
 ```
 mkdir /om2/user/$USER/vgdl_testing
+cd /om2/user/$USER/vgdl_testing
 git clone https://github.com/lcary/RC_RL
 cd RC_RL
 ```
