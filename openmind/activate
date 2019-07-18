@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# usage: run inside a srun pty to get going
+
+module add openmind/singularity
+
+cd "$( dirname "${BASH_SOURCE[0]}" )"
+cd ..
+singularity shell --bind $(pwd) exampleVGDL.simg
