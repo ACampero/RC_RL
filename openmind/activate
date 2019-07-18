@@ -5,4 +5,4 @@
 module add openmind/singularity
 
 cd "$( dirname "${BASH_SOURCE[0]}" )"
-singularity shell --bind $(pwd) example.VGDL.py2.simg
+singularity shell --bind $(pwd) VGDLContainer.py2.simg
