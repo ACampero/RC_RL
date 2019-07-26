@@ -1,3 +1,4 @@
 [submodule "dopamine"]
 	path = dopamine
 	url = https://github.com/ACampero/dopamine.git
+	branch = master
