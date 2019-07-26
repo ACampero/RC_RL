@@ -31,7 +31,7 @@ class DQN(nn.Module):
     def forward(self, x):
         # assert(list(x.size()[-3]) == self.input_size)
         # debug_here()
-        pdb.set_trace()
+        #pdb.set_trace()
         x = self.cnn(x)
         x = x.view(x.size(0), -1)
         x = self.classifier(x)
