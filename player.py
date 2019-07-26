@@ -76,6 +76,7 @@ class Player(object):
 
     def get_screen(self):
         # imageio.imsave('sample.png', self.Env.render())
+        pdb.set_trace()
         screen = self.Env.render().transpose((2, 0, 1))
         screen = np.ascontiguousarray(screen, dtype=np.float32) / 255
         screen = torch.from_numpy(screen)

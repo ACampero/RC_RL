@@ -9,5 +9,5 @@
 
 set -e
 root=/om2/user/$USER/vgdl_testing/RC_RL
-module add openmind/singularity
-singularity exec --bind $root VGDLContainer.py2.simg bash openmind/run_model_task.sh
+module add openmind/singularity openmind/cudnn openmind/cuda
+singularity exec --nv --bind $root VGDLContainer.py2.simg bash openmind/run_model_task.sh
