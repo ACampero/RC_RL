@@ -104,7 +104,7 @@ class VGDLEnvAndres(object):
                         interactionfilewriter.writerow(row)
             self.episode += 1
             print("Level {}, episode reward at step {}: {}".format(self.Env.lvl, self.steps, self.episode_reward))
-                sys.stdout.flush()
+            sys.stdout.flush()
             episode_results = [self.Env.lvl, self.steps, self.episode_reward, self.win, self.config.game_name,
                                  int(self.config.criteria.split('/')[0])]
             self.recent_history.insert(0, self.win)
@@ -118,14 +118,14 @@ class VGDLEnvAndres(object):
                               "ab") as file:
                         writer = csv.writer(file)
                         writer.writerow(episode_results)
-                    break
+                    return self.state, self.reward, self.ended, _
             self.episode_reward = 0
 
             if self.episode % 2 == 0 and record_flag:
                 with open(picklefilepath, 'wb') as f:
                     cloudpickle.dump(avatar_position_data, f)
 
-            if record_flag:
+            if self.record_flag:
                 with open('reward_histories/{}_reward_history_{}_trial{}.csv'.format(self.config.game_name,
                                                                                      self.config.level_switch,
                                                                                      self.config.trial_num),
