@@ -26,15 +26,11 @@ from pygame.locals import K_RIGHT, K_LEFT, K_UP, K_DOWN, K_SPACE
 
 
 class Player(object):
-
     def __init__(self, config):
-
         self.config = config
-
         self.Env = VGDLEnv(self.config.game_name, 'all_games')
-
+        pdb.set_trace()
         self.Env.set_level(0)
-
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
         print('Training at seed = {}'.format(self.config.random_seed))
@@ -76,7 +72,7 @@ class Player(object):
 
     def get_screen(self):
         # imageio.imsave('sample.png', self.Env.render())
-        pdb.set_trace()
+        #pdb.set_trace()
         screen = self.Env.render().transpose((2, 0, 1))
         screen = np.ascontiguousarray(screen, dtype=np.float32) / 255
         screen = torch.from_numpy(screen)
