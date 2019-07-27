@@ -7,7 +7,7 @@ from vgdl.rlenvironmentnonstatic import createRLInputGameFromStrings
 import numpy as np
 import imageio
 from skimage.transform import resize
-
+import pdb
 # from core.env import env
 
 #sample_usage
@@ -23,7 +23,6 @@ class VGDLEnv():
 	def __init__(self, game_name, game_folder):
 
 		self.game_name = game_name
-
 		self.game_folder = game_folder
 
 		self.env_list = utils.load_game(game_name, game_folder)
