@@ -23,10 +23,16 @@ class VGDLEnvAndres(object):
         self.trial_num = 1
         self.criteria = '1/1'
         self.timeout = 2000
+        games_folder = '../all_games'
 
-        self.Env = VGDLEnv(self.game_name, 'all_games')
+        ##Recording Data
+        self.record_flag = 0 #record_flag
+        reward_histories_folder = ''
+        object_interaction_histories = ''
+        picklefilepath = ''
+
+        self.Env = VGDLEnv(self.game_name, games_folder)
         self.Env.set_level(0)
-        pdb.set_trace()
         self.action_space = self.Env.actions
 
         self.Transition = namedtuple('Transition',
@@ -37,7 +43,6 @@ class VGDLEnvAndres(object):
         self.episode_steps = 0
         self.episode = 0
         self.episode_reward = 0
-        self.record_flag = record_flag
 
         if self.record_flag:
             with open('reward_histories/{}_reward_history_{}_trial{}.csv'.format(self.game_name,

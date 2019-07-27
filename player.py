@@ -29,7 +29,6 @@ class Player(object):
     def __init__(self, config):
         self.config = config
         self.Env = VGDLEnv(self.config.game_name, 'all_games')
-        pdb.set_trace()
         self.Env.set_level(0)
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
