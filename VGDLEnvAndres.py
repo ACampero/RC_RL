@@ -17,7 +17,7 @@ from pygame.locals import K_RIGHT, K_LEFT, K_UP, K_DOWN, K_SPACE
 class VGDLEnvAndres(object):
     def __init__(self, game_name, record_flag=1):
 
-        ###CONFIGS 
+        ###CONFIGS
         self.game_name = game_name
         self.level_switch = 'sequential'
         self.trial_num = 1
@@ -27,8 +27,8 @@ class VGDLEnvAndres(object):
 
         ##Recording Data
         self.record_flag = 0 #record_flag
-        reward_histories_folder = ''
-        object_interaction_histories = ''
+        reward_histories_folder = '../reward_histories'
+        object_interaction_histories_folder = '../object_interaction_histories'
         picklefilepath = ''
 
         self.Env = VGDLEnv(self.game_name, games_folder)
@@ -45,14 +45,14 @@ class VGDLEnvAndres(object):
         self.episode_reward = 0
 
         if self.record_flag:
-            with open('reward_histories/{}_reward_history_{}_trial{}.csv'.format(self.game_name,
+            with open('{}/{}_reward_history_{}_trial{}.csv'.format(reward_histories_folder,self.game_name,
                                                                              self.level_switch,
                                                                              self.trial_num), "wb") as file:
                 writer = csv.writer(file)
                 writer.writerow(["level", "steps", "ep_reward", "win", "game_name", "criteria"])
 
-            with open('object_interaction_histories/{}_object_interaction_history_{}_trial{}.csv'.format(
-                    self.game_name, self.level_switch, self.trial_num), "wb") as file:
+            with open('{}/{}_object_interaction_history_{}_trial{}.csv'.format(
+                    object_interaction_histories_folder,self.game_name, self.level_switch, self.trial_num), "wb") as file:
                 interactionfilewriter = csv.writer(file)
                 interactionfilewriter.writerow(
                     ['agent_type', 'subject_ID', 'modelrun_ID', 'game_name', 'game_level', 'episode_number', 'event_name',
@@ -105,8 +105,8 @@ class VGDLEnvAndres(object):
             if self.episode_steps > self.timeout: print("Game Timed Out")
             ## PEDRO: 3. At the end of each episode, write events to csv
             if self.record_flag:
-                with open('object_interaction_histories/{}_object_interaction_history_{}_trial{}.csv'.format(
-                        self.game_name, self.level_switch, self.trial_num), "ab") as file:
+                with open('{}/{}_object_interaction_history_{}_trial{}.csv'.format(
+                        object_interaction_histories_folder, self.game_name, self.level_switch, self.trial_num), "ab") as file:
                     interactionfilewriter = csv.writer(file)
                     for event_name, count in event_dict.items():
                         row = ('DDQN', 'NA', 'NA', self.game_name, self.Env.lvl, self.episode, event_name, count)
@@ -126,7 +126,8 @@ class VGDLEnvAndres(object):
 
             if self.level_step():
                 if self.record_flag:
-                    with open('reward_histories/{}_reward_history_{}_trial{}.csv'.format(self.game_name,
+                    with open('{}}/{}_reward_history_{}_trial{}.csv'.format( reward_histories_folder,
+                                                                                         self.game_name,
                                                                                          self.level_switch,
                                                                                          self.trial_num),
                               "ab") as file:
@@ -140,15 +141,10 @@ class VGDLEnvAndres(object):
                     cloudpickle.dump(avatar_position_data, f)
 
             if self.record_flag:
-<<<<<<< HEAD
-                with open('reward_histories/{}_reward_history_{}_trial{}.csv'.format(self.config.game_name,
-                                                                                     self.config.level_switch,
-                                                                                     self.config.trial_num),
-=======
-                with open('reward_histories/{}_reward_history_{}_trial{}.csv'.format(self.game_name,
+                with open('{}/{}_reward_history_{}_trial{}.csv'.format(reward_histories_folder ,self.game_name,
                                                                                      self.level_switch,
                                                                                      self.trial_num),
->>>>>>> f7a1bfc484bdb98100b70ab56ec35d5dee6431c7
+
                           "ab") as file:
                     writer = csv.writer(file)
                     writer.writerow(episode_results)
