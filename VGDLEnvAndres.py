@@ -114,13 +114,9 @@ class VGDLEnvAndres(object):
             self.episode += 1
             print("Level {}, episode reward at step {}: {}".format(self.Env.lvl, self.steps, self.episode_reward))
             sys.stdout.flush()
-<<<<<<< HEAD
-            episode_results = [self.Env.lvl, self.steps, self.episode_reward, self.win, self.config.game_name,
-                                 int(self.config.criteria.split('/')[0])]
-=======
             episode_results = [self.Env.lvl, self.steps, self.episode_reward, self.win, self.game_name,
                                  int(self.criteria.split('/')[0])]
->>>>>>> f7a1bfc484bdb98100b70ab56ec35d5dee6431c7
+
             self.recent_history.insert(0, self.win)
             self.recent_history.pop()
 
