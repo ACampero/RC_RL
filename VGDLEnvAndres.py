@@ -1,4 +1,5 @@
 import random
+from gym import spaces
 from collections import namedtuple, defaultdict
 import numpy as np
 from PIL import Image
@@ -15,7 +16,7 @@ import os
 from pygame.locals import K_RIGHT, K_LEFT, K_UP, K_DOWN, K_SPACE
 
 class VGDLEnvAndres(object):
-    def __init__(self, game_name, record_flag=1):
+    def __init__(self, game_name):
 
         ###CONFIGS
         self.game_name = game_name
@@ -25,24 +26,25 @@ class VGDLEnvAndres(object):
         self.timeout = 2000
         games_folder = '../all_games'
 
-        ##Recording Data
+        ##FOR RECORDING
         self.record_flag = 0 #record_flag
+        #pdb.set_trace()
         reward_histories_folder = '../reward_histories'
         object_interaction_histories_folder = '../object_interaction_histories'
-        picklefilepath = ''
+        picklefilepath = '../pickleFiles/{}.csv'.format(self.game_name)
 
         self.Env = VGDLEnv(self.game_name, games_folder)
         self.Env.set_level(0)
-        self.action_space = self.Env.actions
+        self.action_space = spaces.Discrete(len(self.Env.actions))
 
-        self.Transition = namedtuple('Transition',
-                                     ('state', 'action', 'next_state', 'reward'))
-        self.ended = 0
+        self.game_over = 0
         self.screen_history = []
         self.steps = 0
         self.episode_steps = 0
         self.episode = 0
         self.episode_reward = 0
+	self.event_dict = defaultdict(lambda: 0)
+        self.recent_history = [0] * int(self.criteria.split('/')[1])        
 
         if self.record_flag:
             with open('{}/{}_reward_history_{}_trial{}.csv'.format(reward_histories_folder,self.game_name,
@@ -58,18 +60,14 @@ class VGDLEnvAndres(object):
                     ['agent_type', 'subject_ID', 'modelrun_ID', 'game_name', 'game_level', 'episode_number', 'event_name',
                      'count'])
 
-            ## PEDRO: Rename as needed
-            picklefilepath = 'pickleFiles/{}.csv'.format(self.game_name)
-            self.recent_history = [0] * int(self.criteria.split('/')[1])
-
 
     ### FOR Gym API
     def step(self, action):
         self.steps += 1
         self.episode_steps += 1
         self.append_gif()
-        self.reward , self.ended, self.win = Env.step(action)
-        avatar_position_data['episodes'][-1].append((self.Env.current_env._game.sprite_groups['avatar'][0].rect.left,
+        self.reward , self.game_over, self.win = self.Env.step(action)
+        self.avatar_position_data['episodes'][-1].append((self.Env.current_env._game.sprite_groups['avatar'][0].rect.left,
                                                      self.Env.current_env._game.sprite_groups['avatar'][0].rect.top,
                                                      self.Env.current_env._game.time,
                                                      self.Env.lvl))
@@ -84,31 +82,21 @@ class VGDLEnvAndres(object):
             else:
                 timestep_events.add(tuple(sorted((e[1], e[2]))))
         for e in timestep_events:
-            event_dict[e] += 1
+            self.event_dict[e] += 1
 
         self.episode_reward += self.reward
         #self.reward = max(-1.0, min(self.reward, 1.0))
         #self.last_screen = self.current_screen
         self.state = self.get_screen()
 
-        #self.next_state = self.current_screen - self.last_screen
-        #if not self.ended:
-        #    self.next_state = current_screen - last_screen
-        #else:
-        #    self.next_state = None
-        # Store the transition in memory
-        self.memory.push(self)
-        # Move to the next state
-        #self.state = self.next_state
-
-        if self.ended or self.episode_steps > self.timeout:
+        if self.game_over or self.episode_steps > self.timeout:
             if self.episode_steps > self.timeout: print("Game Timed Out")
             ## PEDRO: 3. At the end of each episode, write events to csv
             if self.record_flag:
                 with open('{}/{}_object_interaction_history_{}_trial{}.csv'.format(
                         object_interaction_histories_folder, self.game_name, self.level_switch, self.trial_num), "ab") as file:
                     interactionfilewriter = csv.writer(file)
-                    for event_name, count in event_dict.items():
+                    for event_name, count in self.event_dict.items():
                         row = ('DDQN', 'NA', 'NA', self.game_name, self.Env.lvl, self.episode, event_name, count)
                         interactionfilewriter.writerow(row)
             self.episode += 1
@@ -129,12 +117,12 @@ class VGDLEnvAndres(object):
                               "ab") as file:
                         writer = csv.writer(file)
                         writer.writerow(episode_results)
-                    return self.state, self.reward, self.ended, _
+                    return self.state, self.reward, self.game_over, 0
             self.episode_reward = 0
 
-            if self.episode % 2 == 0 and record_flag:
+            if self.episode % 2 == 0 and self.record_flag:
                 with open(picklefilepath, 'wb') as f:
-                    cloudpickle.dump(avatar_position_data, f)
+                    cloudpickle.dump(self.avatar_position_data, f)
 
             if self.record_flag:
                 with open('{}/{}_reward_history_{}_trial{}.csv'.format(reward_histories_folder ,self.game_name,
@@ -145,14 +133,15 @@ class VGDLEnvAndres(object):
                     writer = csv.writer(file)
                     writer.writerow(episode_results)
             self.screen_history = []
-        return self.state, self.reward, self.ended, _
+        return self.state, self.reward, self.game_over, 0
 
     def reset(self):
         self.Env.reset()
-        avatar_position_data['episodes'].append([(self.Env.current_env._game.sprite_groups['avatar'][0].rect.left,
-                                                          self.Env.current_env._game.sprite_groups['avatar'][0].rect.top,
-                                                          self.Env.current_env._game.time, self.Env.lvl)])
-        event_dict = defaultdict(lambda: 0)
+        self.avatar_position_data = {'game_info': (self.Env.current_env._game.width, self.Env.current_env._game.height),
+                                'episodes': [[(self.Env.current_env._game.sprite_groups['avatar'][0].rect.left,
+                                               self.Env.current_env._game.sprite_groups['avatar'][0].rect.top,
+                                               self.Env.current_env._game.time,
+                                               self.Env.lvl)]]}
         self.episode_steps = 0
         #self.last_screen = self.get_screen()
         #self.current_screen = self.get_screen()
@@ -170,7 +159,8 @@ class VGDLEnvAndres(object):
         screen = self.Env.render()
         screen = np.ascontiguousarray(screen, dtype=np.float32) / 255
         screen = cv2.resize(screen, dsize=(84,84), interpolation=cv2.INTER_CUBIC)
-        return screen
+        screen_1channel = np.mean(screen, axis=2)
+        return screen_1channel
 
     def save_gif(self):
         imageio.mimsave('screens/{}_frame{}.gif'.format(self.game_name, self.steps), self.screen_history)

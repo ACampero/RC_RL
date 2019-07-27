@@ -24,7 +24,7 @@ class VGDLEnv():
 
 		self.game_name = game_name
 		self.game_folder = game_folder
-
+                #pdb.set_trace()  
 		self.env_list = utils.load_game(game_name, game_folder)
 
 		self.lvl = 0
