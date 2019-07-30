@@ -21,17 +21,17 @@ class VGDLEnvAndres(object):
         ###CONFIGS
         self.game_name = game_name
         self.level_switch = 'sequential'
-        self.trial_num = 1
+        self.trial_num = 2
         self.criteria = '1/1'
         self.timeout = 2000
         games_folder = '../all_games'
 
         ##FOR RECORDING
-        self.record_flag = 0 #record_flag
+        self.record_flag = 1 #record_flag
         #pdb.set_trace()
-        reward_histories_folder = '../reward_histories'
-        object_interaction_histories_folder = '../object_interaction_histories'
-        picklefilepath = '../pickleFiles/{}.csv'.format(self.game_name)
+        self.reward_histories_folder = '../reward_histories'
+        self.object_interaction_histories_folder = '../object_interaction_histories'
+        self.picklefilepath = '../pickleFiles/{}.csv'.format(self.game_name)
 
         self.Env = VGDLEnv(self.game_name, games_folder)
         self.Env.set_level(0)
@@ -43,18 +43,18 @@ class VGDLEnvAndres(object):
         self.episode_steps = 0
         self.episode = 0
         self.episode_reward = 0
-	self.event_dict = defaultdict(lambda: 0)
+        self.event_dict = defaultdict(lambda: 0)
         self.recent_history = [0] * int(self.criteria.split('/')[1])        
 
         if self.record_flag:
-            with open('{}/{}_reward_history_{}_trial{}.csv'.format(reward_histories_folder,self.game_name,
+            with open('{}/{}_reward_history_{}_trial{}.csv'.format(self.reward_histories_folder,self.game_name,
                                                                              self.level_switch,
                                                                              self.trial_num), "wb") as file:
                 writer = csv.writer(file)
                 writer.writerow(["level", "steps", "ep_reward", "win", "game_name", "criteria"])
 
             with open('{}/{}_object_interaction_history_{}_trial{}.csv'.format(
-                    object_interaction_histories_folder,self.game_name, self.level_switch, self.trial_num), "wb") as file:
+                    self.object_interaction_histories_folder,self.game_name, self.level_switch, self.trial_num), "wb") as file:
                 interactionfilewriter = csv.writer(file)
                 interactionfilewriter.writerow(
                     ['agent_type', 'subject_ID', 'modelrun_ID', 'game_name', 'game_level', 'episode_number', 'event_name',
@@ -94,7 +94,7 @@ class VGDLEnvAndres(object):
             ## PEDRO: 3. At the end of each episode, write events to csv
             if self.record_flag:
                 with open('{}/{}_object_interaction_history_{}_trial{}.csv'.format(
-                        object_interaction_histories_folder, self.game_name, self.level_switch, self.trial_num), "ab") as file:
+                        self.object_interaction_histories_folder, self.game_name, self.level_switch, self.trial_num), "ab") as file:
                     interactionfilewriter = csv.writer(file)
                     for event_name, count in self.event_dict.items():
                         row = ('DDQN', 'NA', 'NA', self.game_name, self.Env.lvl, self.episode, event_name, count)
@@ -110,7 +110,7 @@ class VGDLEnvAndres(object):
 
             if self.level_step():
                 if self.record_flag:
-                    with open('{}}/{}_reward_history_{}_trial{}.csv'.format( reward_histories_folder,
+                    with open('{}}/{}_reward_history_{}_trial{}.csv'.format( self.reward_histories_folder,
                                                                                          self.game_name,
                                                                                          self.level_switch,
                                                                                          self.trial_num),
@@ -121,11 +121,11 @@ class VGDLEnvAndres(object):
             self.episode_reward = 0
 
             if self.episode % 2 == 0 and self.record_flag:
-                with open(picklefilepath, 'wb') as f:
+                with open(self.picklefilepath, 'wb') as f:
                     cloudpickle.dump(self.avatar_position_data, f)
 
             if self.record_flag:
-                with open('{}/{}_reward_history_{}_trial{}.csv'.format(reward_histories_folder ,self.game_name,
+                with open('{}/{}_reward_history_{}_trial{}.csv'.format(self.reward_histories_folder ,self.game_name,
                                                                                      self.level_switch,
                                                                                      self.trial_num),
 
