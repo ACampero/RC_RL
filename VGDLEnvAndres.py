@@ -12,6 +12,7 @@ import csv
 import cloudpickle
 import cv2
 
+
 import os
 from pygame.locals import K_RIGHT, K_LEFT, K_UP, K_DOWN, K_SPACE
 
@@ -21,7 +22,7 @@ class VGDLEnvAndres(object):
         ###CONFIGS
         self.game_name = game_name
         self.level_switch = 'sequential'
-        self.trial_num = 2
+        self.trial_num = 23
         self.criteria = '1/1'
         self.timeout = 2000
         games_folder = '../all_games'
@@ -36,6 +37,7 @@ class VGDLEnvAndres(object):
         self.Env = VGDLEnv(self.game_name, games_folder)
         self.Env.set_level(0)
         self.action_space = spaces.Discrete(len(self.Env.actions))
+        self.observation_space = spaces.Box(low=0.0, high=1.0, shape=(84,84,3))
 
         self.game_over = 0
         self.screen_history = []
@@ -160,6 +162,7 @@ class VGDLEnvAndres(object):
         screen = np.ascontiguousarray(screen, dtype=np.float32) / 255
         screen = cv2.resize(screen, dsize=(84,84), interpolation=cv2.INTER_CUBIC)
         screen_1channel = np.mean(screen, axis=2)
+        #return screen
         return screen_1channel
 
     def save_gif(self):

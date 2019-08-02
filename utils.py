@@ -1,8 +1,11 @@
 
 from vgdl.rlenvironmentnonstatic import createRLInputGameFromStrings
-import pygame
 import os
+os.environ['SDL_AUDIODRIVER'] = 'dsp'
+import pygame
 import numpy as np
+import pdb
+
 
 def load_game(game_name, games_folder):
 
@@ -19,7 +22,7 @@ def load_game(game_name, games_folder):
 		rle.visualize = True
 		if headless:
 			os.environ["SDL_VIDEODRIVER"] = "dummy"
-		# import pdb; pdb.set_trace()
+		#pdb.set_trace()
 		pygame.init()
 
 		return rle
@@ -32,7 +35,6 @@ def load_game(game_name, games_folder):
 			yield color
 
 	file_list = {}
-
 	for file in os.listdir(games_folder):
 		# import pdb; pdb.set_trace()
 		if 'DS' not in file:
@@ -54,7 +56,7 @@ def load_game(game_name, games_folder):
 						file_list[int(level)] = file
 
 	# new_doc = ''
-	# with open('all_games/{}'.format(file_list['game']), 'r') as f:
+	# with open('{}/{}'.format(games_folder, file_list['game']), 'r') as f:
 	# 	new_doc = []
 	# 	g = _gen_color()
 	# 	for line in f.readlines():
@@ -67,8 +69,8 @@ def load_game(game_name, games_folder):
 	# import pdb; pdb.set_trace()
 
 	if 'expt_ee' not in game_name:
-
-		with open('all_games/{}'.format(file_list['game']), 'r') as game:
+                #pdb.set_trace()  
+		with open('{}/{}'.format(games_folder, file_list['game']), 'r') as game:
 			gameString = game.read()
 
 	env_list = {}
@@ -81,10 +83,10 @@ def load_game(game_name, games_folder):
 
 		if 'expt_ee' in game_name:
 
-			with open('all_games/{}'.format(file_list['game_{}'.format(lvl_idx)]), 'r') as game:
+			with open('{}/{}'.format(games_folder, file_list['game_{}'.format(lvl_idx)]), 'r') as game:
 				gameString = game.read()
 
-		with open('all_games/{}'.format(file_list[lvl_idx]), 'r') as level:
+		with open('{}/{}'.format(games_folder, file_list[lvl_idx]), 'r') as level:
 			levelString = level.read()
 
 		# import pdb; pdb.set_trace()
