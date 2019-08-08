@@ -8,7 +8,6 @@ import pdb
 
 
 def load_game(game_name, games_folder):
-
 	def _load_level(gameString, levelString):
 
 		headless = True

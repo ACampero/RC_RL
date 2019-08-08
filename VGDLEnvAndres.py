@@ -22,7 +22,7 @@ class VGDLEnvAndres(object):
         ###CONFIGS
         self.game_name = game_name
         self.level_switch = 'sequential'
-        self.trial_num = 23
+        self.trial_num = 402
         self.criteria = '1/1'
         self.timeout = 2000
         games_folder = '../all_games'
@@ -65,6 +65,8 @@ class VGDLEnvAndres(object):
 
     ### FOR Gym API
     def step(self, action):
+        if self.steps>= 1000000:
+            sys.exit()   
         self.steps += 1
         self.episode_steps += 1
         self.append_gif()
@@ -109,16 +111,16 @@ class VGDLEnvAndres(object):
 
             self.recent_history.insert(0, self.win)
             self.recent_history.pop()
-
             if self.level_step():
                 if self.record_flag:
-                    with open('{}}/{}_reward_history_{}_trial{}.csv'.format( self.reward_histories_folder,
+                    with open('{}/{}_reward_history_{}_trial{}.csv'.format( self.reward_histories_folder,
                                                                                          self.game_name,
                                                                                          self.level_switch,
                                                                                          self.trial_num),
                               "ab") as file:
                         writer = csv.writer(file)
                         writer.writerow(episode_results)
+                    print('{{}'.format(1))
                     return self.state, self.reward, self.game_over, 0
             self.episode_reward = 0
 
