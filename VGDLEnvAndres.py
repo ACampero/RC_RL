@@ -46,12 +46,12 @@ class VGDLEnvAndres(object):
         self.episode = 0
         self.episode_reward = 0
         self.event_dict = defaultdict(lambda: 0)
-        self.recent_history = [0] * int(self.criteria.split('/')[1])        
+        self.recent_history = [0] * int(self.criteria.split('/')[1])
 
         if self.record_flag:
             with open('{}/{}_reward_history_{}_trial{}.csv'.format(self.reward_histories_folder,self.game_name,
                                                                              self.level_switch,
-                                                                             self.trial_num), "wb") as file:
+                                                                             self.trial_num), "ab") as file:
                 writer = csv.writer(file)
                 writer.writerow(["level", "steps", "ep_reward", "win", "game_name", "criteria"])
 
@@ -64,9 +64,16 @@ class VGDLEnvAndres(object):
 
 
     ### FOR Gym API
+    def set_level(self, intended_level):
+        self.Env.lvl = intended_level
+        self.Env.set_level(self.Env.lvl)
+
+    def get_level(self):
+        return self.Env.level_step
+
     def step(self, action):
         if self.steps>= 1000000:
-            sys.exit()   
+            sys.exit()
         self.steps += 1
         self.episode_steps += 1
         self.append_gif()
