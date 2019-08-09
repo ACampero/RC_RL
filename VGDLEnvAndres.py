@@ -23,7 +23,7 @@ class VGDLEnvAndres(object):
         self.game_name = game_name
         self.game_name_short = game_name[5:]
         self.level_switch = 'sequential'
-        self.trial_num = 1000
+        self.trial_num = 203
         self.criteria = '1/1'
         self.timeout = 2000
         games_folder = '../all_games'
@@ -65,12 +65,13 @@ class VGDLEnvAndres(object):
 
 
     ### FOR Gym API
-    def set_level(self, intended_level):
+    def set_level(self, intended_level, intended_steps):
         self.Env.lvl = intended_level
         self.Env.set_level(self.Env.lvl)
+        self.steps = intended_steps
 
     def get_level(self):
-        return self.Env.level_step
+        return self.Env.lvl
 
     def step(self, action):
         if self.steps>= 1000000:
