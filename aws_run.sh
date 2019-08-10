@@ -1,5 +1,5 @@
 
-git pull
+
 cd dopamine
 
 array=( aliens zelda butteflies plaqueattack expt_antagonist expt_ee
@@ -29,15 +29,17 @@ variant_survivezombies_1 variant_survivezombies_2
 variant_watergame_1 variant_watergame_2
 variant_zelda_1 variant_zelda_2 variant_zelda_3)
 
-echo $1 $2 
-for i in {$1..$2}
-do 
+
+for i in $(seq $1 $2)
+do
+    echo $1 $2
     aux=${array[$i]}
+    echo $aux
     directory=./tmp/dopamine/$aux
-    game_name=\'create_atari_environment.game_name=\"VGDL_$aux\"\'
+    game_name=create_atari_environment.game_name=\"VGDL_$aux\"
     
     python -um dopamine.discrete_domains.train \
-    --base_dir=$directory
+    --base_dir=$directory \
     --gin_files='dopamine/agents/rainbow/configs/rainbow_aaaiAndres.gin' \
     --gin_bindings=$game_name
     
@@ -45,3 +47,5 @@ do
 done
 
 echo finished all games
+
+
