@@ -68,7 +68,6 @@ def load_game(game_name, games_folder):
 	# import pdb; pdb.set_trace()
 
 	if 'expt_ee' not in game_name:
-                #pdb.set_trace()  
 		with open('{}/{}'.format(games_folder, file_list['game']), 'r') as game:
 			gameString = game.read()
 
