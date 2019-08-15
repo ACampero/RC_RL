@@ -1,0 +1,16 @@
+level,steps,ep_reward,win,game_name,criteria
+0,1998,-1,False,expt_ee,1
+0,3996,-1,False,expt_ee,1
+0,5783,1,True,expt_ee,1
+1,7781,-1,False,expt_ee,1
+1,8843,1,True,expt_ee,1
+2,8921,1,True,expt_ee,1
+3,10604,1,True,expt_ee,1
+4,11773,1,True,expt_ee,1
+5,11987,-1,False,expt_ee,1
+5,12062,-1,False,expt_ee,1
+5,12233,-1,False,expt_ee,1
+5,12255,-1,False,expt_ee,1
+5,12354,-1,False,expt_ee,1
+5,12366,-1,False,expt_ee,1
+5,12753,1,True,expt_ee,1
