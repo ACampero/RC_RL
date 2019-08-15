@@ -29,9 +29,6 @@ variant_survivezombies_1 variant_survivezombies_2
 variant_watergame_1 variant_watergame_2
 variant_zelda_1 variant_zelda_2 variant_zelda_3
 frogs portals sokoban)
-<<<<<<< HEAD
-=======
-
 >>>>>>> 70d3e59633e7275e2ceb9dddcddc507fd5a06b9e
 
 for i in $(seq $1 $2)

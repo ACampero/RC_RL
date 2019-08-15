@@ -23,11 +23,7 @@ class VGDLEnvAndres(object):
         self.game_name = game_name
         self.game_name_short = game_name[5:]
         self.level_switch = 'sequential'
-<<<<<<< HEAD
         self.trial_num = 1000
-=======
-        self.trial_num = 1002
->>>>>>> 70d3e59633e7275e2ceb9dddcddc507fd5a06b9e
         self.criteria = '1/1'
         self.timeout = 2000
         games_folder = '../all_games'
