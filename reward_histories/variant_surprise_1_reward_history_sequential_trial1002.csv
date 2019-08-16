@@ -1,0 +1,10 @@
+level,steps,ep_reward,win,game_name,criteria
+0,621,1,True,variant_surprise_1,1
+1,1656,1,True,variant_surprise_1,1
+2,3654,-1,False,variant_surprise_1,1
+2,5652,-1,False,variant_surprise_1,1
+2,7650,-1,False,variant_surprise_1,1
+2,9648,-1,False,variant_surprise_1,1
+2,11615,1,True,variant_surprise_1,1
+3,13201,1,True,variant_surprise_1,1
+4,14977,1,True,variant_surprise_1,1
