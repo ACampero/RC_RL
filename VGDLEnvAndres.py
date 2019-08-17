@@ -23,7 +23,7 @@ class VGDLEnvAndres(object):
         self.game_name = game_name
         self.game_name_short = game_name[5:]
         self.level_switch = 'sequential'
-        self.trial_num = 1001
+        self.trial_num = 1003
         self.criteria = '1/1'
         self.timeout = 2000
         games_folder = '../all_games'
@@ -103,7 +103,9 @@ class VGDLEnvAndres(object):
         self.state = self.get_screen()
 
         if self.game_over or self.episode_steps > self.timeout:
-            if self.episode_steps > self.timeout: print("Game Timed Out")
+            if self.episode_steps > self.timeout:
+                print("Game Timed Out")
+                pdb.set_trace()
             ## PEDRO: 3. At the end of each episode, write events to csv
             if self.record_flag:
                 with open('{}/{}_object_interaction_history_{}_trial{}.csv'.format(
