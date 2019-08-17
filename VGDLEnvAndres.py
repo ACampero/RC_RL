@@ -105,7 +105,6 @@ class VGDLEnvAndres(object):
         if self.game_over or self.episode_steps > self.timeout:
             if self.episode_steps > self.timeout:
                 print("Game Timed Out")
-                pdb.set_trace()
             ## PEDRO: 3. At the end of each episode, write events to csv
             if self.record_flag:
                 with open('{}/{}_object_interaction_history_{}_trial{}.csv'.format(
