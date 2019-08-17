@@ -80,10 +80,14 @@ class VGDLEnvAndres(object):
         self.episode_steps += 1
         self.append_gif()
         self.reward , self.game_over, self.win = self.Env.step(action)
-        self.avatar_position_data['episodes'][-1].append((self.Env.current_env._game.sprite_groups['avatar'][0].rect.left,
+        if len(self.Env.current_env._game.sprite_groups['avatar']) > 0:
+            self.avatar_position_data['episodes'][-1].append((self.Env.current_env._game.sprite_groups['avatar'][0].rect.left,
                                                      self.Env.current_env._game.sprite_groups['avatar'][0].rect.top,
                                                      self.Env.current_env._game.time,
                                                      self.Env.lvl))
+        else:
+            print("AVATAR_ERROR_IGNORE")
+            self.game_over = True 
         ## PEDRO: 2. Store events that occur at each timestep
         timestep_events = set()
         for e in self.Env.current_env._game.effectListByClass:
