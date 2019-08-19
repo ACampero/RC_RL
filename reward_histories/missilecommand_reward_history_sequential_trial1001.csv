@@ -1,4 +1,4 @@
-_level,steps,ep_reward,win,game_name,criteria
+level,steps,ep_reward,win,game_name,criteria
 0,99,-1,False,missilecommand,1
 0,198,-1,False,missilecommand,1
 0,387,-1,False,missilecommand,1
