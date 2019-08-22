@@ -1,54 +1,67 @@
-Openmind Instructions
+Interfacing with VGDL
 =====================
 
-Instructions to train this repo's models on Openmind inside containers.
+Instructions to interface with VGDL and to run DeepRL Models.
 
-Step 1. Folder setup
+Gym-like API
 --------------------
-
-For these scripts to work properly, setup is as follows:
+The Methods are defined in `VGDLEnvAndres.py` :
 ```
-mkdir /om2/user/$USER/vgdl_testing
-cd /om2/user/$USER/vgdl_testing
-git clone https://github.com/lcary/RC_RL
-cd RC_RL
+#Configs to set
+self.trial_num = 1002
+self.record_flag = 1 #0 to not generate VGDL files
+
+#Attributes
+self.game_name
+self.game_over
+self.action_space
+self.observation_space
+
+#Methods
+self.step(action)
+self.reset()
+self.set_level(level,steps)
+self.get_level()
 ```
 
-For other filesystem setups, modify the path in the 2 scripts in this folder accordingly.
 
-Step 2. Get the container
+
+
+Run implementations of RL models we used
 -------------------------
+Installation
 
-Download the container image titled `VGDLContainer.py2.simg` from:
-https://github.mit.edu/lcary/singularity-builds/releases/tag/dopamine
-
-Either download directly to openmind (e.g. via `wget`)
-or download locally and `scp` or `rsync` to Openmind.
-
-Copy the container image into the clone of this repo from the previous step.
-
-Step 3. Install Python dependencies
------------------------------------
-
-Install the python dependencies by running these commands:
 ```
-cd RC_RL
-module add openmind/singularity
-singularity shell --bind $(pwd) VGDLContainer.py2.simg
-virtualenv venv
-source venv/bin/activate
+sudo apt-get update && sudo apt-get install python python2.7 python-pip virtualenv git wget emacs cmake zlib1g-devcmake zlib1g-dev
+
 pip install wheel
-pip install -r requirements.txt
+pip install -r requirements
+#FOR Dopamine:
+pip install absl-py atari-py gin-config gym opencv-python tensorflow-gpu
 ```
 
-This is a one-time setup step.
 
-Step 4. Train the model
------------------------
 
-The following command submits a job to train a model.
+Run Dopamine
+Clone this Repo and our version of Dopamine from https://github.com/ACampero/dopamine as a submodule as in the Repo
+
 ```
-sbatch ./openmind/run_model_sbatch.sh
+python -um dopamine.discrete_domains.train \
+  --base_dir=./tmp/dopamine/aliens \
+  --gin_files='dopamine/agents/rainbow/configs/rainbow_aaaiAndres.gin' \
+  --gin_bindings='create_atari_environment.game_name="VGDL_aliens"'
 ```
 
-Output will be saved to the `output/` folder, errors to `errors/`.
+Kevin's Pytorch Implemenation of DDQN (which we originally used)
+
+```
+python run.py -game_name aliens
+```
+
+
+
+
+
+
+
+
