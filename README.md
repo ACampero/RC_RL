@@ -9,7 +9,7 @@ The Methods are defined in `VGDLEnvAndres.py` :
 ```
 #Configs to set
 self.trial_num = 1002
-self.record_flag = 1 #0 to not generate VGDL files
+self.record_flag = 0 #1 to generate VGDL files (reward_histories used for figure metrics and object_interaction histories)
 
 #Attributes
 self.game_name
@@ -27,7 +27,7 @@ self.get_level()
 
 
 
-To Run implementations of RL models we used
+To run implementations of RL models
 -------------------------
 **Installation**
 
@@ -36,6 +36,7 @@ sudo apt-get update && sudo apt-get install python python2.7 python-pip virtuale
 
 pip install wheel
 pip install -r requirements
+
 #FOR Dopamine:
 pip install absl-py atari-py gin-config gym opencv-python tensorflow-gpu
 ```
@@ -53,7 +54,7 @@ python -um dopamine.discrete_domains.train \
   --gin_bindings='create_atari_environment.game_name="VGDL_aliens"'
 ```
 
-**Run Kevin's Pytorch Implemenation of DDQN (which we originally used)**
+**Run Pytorch Implemenation of DDQN (which we originally used)**
 
 ```
 python run.py -game_name aliens
