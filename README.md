@@ -57,7 +57,7 @@ python -um dopamine.discrete_domains.train \
 **Run Pytorch Implemenation of DDQN**
 
 ```
-python run.py -game_name aliens
+python runDDQN.py -game_name aliens
 ```
 
 
