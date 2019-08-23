@@ -9,7 +9,7 @@ The Methods are defined in `VGDLEnvAndres.py` :
 ```
 #Configs to set
 self.trial_num = 1002
-self.record_flag = 0 #1 to generate VGDL files (reward_histories used for figure metrics and object_interaction histories)
+self.record_flag = 0 #1 to generate VGDL files (i.e. reward_histories used for figures)
 
 #Attributes
 self.game_name
