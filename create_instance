@@ -1,1 +1,0 @@
-aws ec2 run-instances --image-id ami-05743f33a77b924b8 --count 1 --instance-type p2.xlarge --key-name kevinwu
