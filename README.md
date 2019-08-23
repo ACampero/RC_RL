@@ -27,7 +27,7 @@ self.get_level()
 
 
 
-To run implementations of RL models
+To run Deep RL models
 -------------------------
 **Installation**
 
@@ -54,7 +54,7 @@ python -um dopamine.discrete_domains.train \
   --gin_bindings='create_atari_environment.game_name="VGDL_aliens"'
 ```
 
-**Run Pytorch Implemenation of DDQN (which we originally used)**
+**Run Pytorch Implemenation of DDQN**
 
 ```
 python run.py -game_name aliens
