@@ -2,6 +2,3 @@
 	path = dopamine
 	url = https://github.com/ACampero/dopamine.git
 	branch = master
-[submodule "tensor2tensor"]
-	path = tensor2tensor
-	url = https://github.com/ACampero/tensor2tensor.git
