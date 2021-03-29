@@ -16,7 +16,7 @@ numpy==1.16.4
 pathlib2==2.3.4
 pexpect==4.7.0
 pickleshare==0.7.5
-Pillow==6.1.0
+Pillow==8.1.1
 prompt-toolkit==1.0.16
 ptyprocess==0.6.0
 PyBrain==0.3
