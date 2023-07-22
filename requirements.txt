@@ -4,7 +4,7 @@ cloudpickle==1.2.1
 cycler==0.10.0
 decorator==4.4.0
 enum34==1.1.6
-future==0.17.1
+future==0.18.3
 futures==3.3.0
 imageio==2.5.0
 ipython==5.8.0
